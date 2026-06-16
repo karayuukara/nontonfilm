@@ -1,0 +1,15 @@
+{
+  "name": "nontonfilm",
+  "local_port": 56056,
+  "entrypoint": "bun run dev",
+  "publish": {
+    "label": "nontonfilm",
+    "type": "http",
+    "entrypoint": "bun run prod",
+    "published_port": 50531,
+    "env": {
+      "NODE_ENV": "production",
+      "ZO_CLIENT_IDENTITY_TOKEN": "none"
+    }
+  }
+}
