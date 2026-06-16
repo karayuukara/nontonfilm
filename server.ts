@@ -11,10 +11,65 @@ const app = new Hono();
 const mode: Mode =
   process.env.NODE_ENV === "production" ? "production" : "development";
 
-/**
- * Add any API routes here.
- */
-app.get("/api/hello-zo", (c) => c.json({ msg: "Hello from Zo" }));
+// --- TMDB API proxy with in-memory cache ---
+const TMDB_BASE = "https://api.themoviedb.org/3";
+const cache = new Map<string, { data: unknown; ts: number }>();
+const CACHE_TTL = 60 * 60 * 1000;
+
+function cached(key: string) {
+  const entry = cache.get(key);
+  if (entry && Date.now() - entry.ts < CACHE_TTL) return entry.data;
+  return null;
+}
+
+function setCache(key: string, data: unknown) {
+  cache.set(key, { data, ts: Date.now() });
+}
+
+async function tmdbFetch(endpoint: string, params: Record<string, string> = {}) {
+  const apiKey = process.env.TMDB_API_KEY;
+  if (!apiKey) throw new Error("TMDB_API_KEY not set");
+  const sp = new URLSearchParams({ ...params, api_key: apiKey, language: "id-ID" });
+  const url = `${TMDB_BASE}${endpoint}?${sp}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`TMDB error: ${res.status}`);
+  return res.json();
+}
+
+function tmdbProxy(endpoint: string) {
+  return async (c: any) => {
+    // Resolve :id/:param placeholders from Hono route params
+    let resolved = endpoint;
+    if (endpoint.includes(":")) {
+      const routeParams = c.req.param() as Record<string, string>;
+      for (const [key, val] of Object.entries(routeParams)) {
+        resolved = resolved.replace(`:${key}`, val);
+      }
+    }
+    const cacheKey = resolved + "?" + new URL(c.req.url).searchParams.toString();
+    const hit = cached(cacheKey);
+    if (hit) return c.json(hit);
+    try {
+      const params: Record<string, string> = {};
+      for (const [k, v] of Object.entries(c.req.query())) {
+        if (typeof v === "string") params[k] = v;
+      }
+      const data = await tmdbFetch(resolved, params);
+      setCache(cacheKey, data);
+      return c.json(data);
+    } catch (e: any) {
+      return c.json({ error: e.message }, 500);
+    }
+  };
+}
+
+app.get("/api/movies/now-playing", tmdbProxy("/movie/now_playing"));
+app.get("/api/movies/top-rated", tmdbProxy("/movie/top_rated"));
+app.get("/api/movies/upcoming", tmdbProxy("/movie/upcoming"));
+app.get("/api/movies/search", tmdbProxy("/search/movie"));
+app.get("/api/movie/:id", tmdbProxy("/movie/:id"));
+app.get("/api/movie/:id/videos", tmdbProxy("/movie/:id/videos"));
+// --- end TMDB proxy ---
 
 if (mode === "production") {
   configureProduction(app);

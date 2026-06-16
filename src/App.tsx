@@ -1,15 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import BlankDemo from "./pages/blank-demo";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
+import HomePage from "@/pages/home";
+import MovieDetailPage from "@/pages/movie-detail";
 
-export default function App() {
+function App() {
   return (
-    <ThemeProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<BlankDemo />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+    <ThemeProvider defaultTheme="dark" storageKey="nontonfilm-theme">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movie/:id" element={<MovieDetailPage />} />
+      </Routes>
     </ThemeProvider>
+    </BrowserRouter>
   );
 }
+
+export default App;
