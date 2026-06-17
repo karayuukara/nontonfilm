@@ -26,6 +26,7 @@ export default function MovieDetailPage() {
   const navigate = useNavigate();
   const [movie, setMovie] = useState<MovieDetail | null>(null);
   const [trailer, setTrailer] = useState<VideoResult | null>(null);
+  const [showPlayer, setShowPlayer] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -199,39 +200,55 @@ export default function MovieDetailPage() {
           </div>
         </div>
 
+        {/* Watch Now Section */}
+        <div className="mt-8">
+          {!showPlayer ? (
+            <div className="relative aspect-video rounded-lg overflow-hidden bg-black flex items-center justify-center cursor-pointer group"
+                 onClick={() => setShowPlayer(true)}>
+              {movie.backdrop_path ? (
+                <img
+                  src={backdropUrl(movie.backdrop_path, "w1280")}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-red-900/60 to-black" />
+              )}
+              <div className="relative z-10 flex flex-col items-center gap-3">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-red-600/90 flex items-center justify-center group-hover:bg-red-500 transition-all group-hover:scale-110 shadow-lg shadow-red-500/30">
+                  <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
+                </div>
+                <span className="text-white font-semibold text-lg">Tonton Sekarang</span>
+                <span className="text-white/50 text-xs">Klik untuk memutar film</span>
+              </div>
+            </div>
+          ) : (
+            <div>
+              {/* Top ad before player */}
+              <AdBanner slot="top" className="mb-3" />
+
+              <div className="relative aspect-video rounded-lg overflow-hidden bg-black shadow-2xl shadow-red-500/10">
+                <iframe
+                  src={`https://vidsrc.to/embed/movie/tmdb/${id}`}
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  title={`Nonton ${movie.title}`}
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                />
+              </div>
+
+              {/* Bottom ad after player */}
+              <AdBanner slot="bottom" className="mt-3 mb-8" />
+
+              <p className="text-xs text-muted-foreground text-center mt-2">
+                Video disediakan oleh penyedia pihak ketiga. Jika tidak muncul, coba refresh halaman.
+              </p>
+            </div>
+          )}
+        </div>
+
         {/* Mid Ad */}
         <AdBanner slot="mid" className="my-8" />
-
-        {/* Trailer / Watch section with ads */}
-        {trailer && (
-          <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Trailer</h2>
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
-              <iframe
-                src={`https://www.youtube.com/embed/${trailer.key}?autoplay=0&rel=0`}
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-                title={trailer.name}
-              />
-            </div>
-
-            {/* Ads around trailer */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              {/* Ad sidebar - left */}
-              <div className="hidden md:block">
-                <AdBanner slot="mid" />
-              </div>
-
-              {/* Ad sidebar - right */}
-              <div className="hidden md:block">
-                <AdBanner slot="mid" />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Bottom Ad */}
-        <AdBanner slot="bottom" className="mt-8 mb-12" />
       </div>
     </div>
   );
