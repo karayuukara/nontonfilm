@@ -1,5 +1,6 @@
 {
   "bunVersion": "1.x",
+  "framework": "hono",
   "buildCommand": "bun run build",
   "outputDirectory": "dist",
   "headers": [
