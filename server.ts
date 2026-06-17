@@ -1,3 +1,4 @@
+import STATIC_MOVIES from './src/data/static-movies';
 import { serveStatic } from "hono/bun";
 import type { ViteDevServer } from "vite";
 import { createServer as createViteServer } from "vite";
@@ -179,18 +180,9 @@ async function scrapePopularMovies(): Promise<Movie[]> {
   }
 }
 
-// Load static movies as fallback
-let staticMoviesCache: Movie[] | null = null;
-async function getStaticMovies(): Promise<Movie[]> {
-  if (staticMoviesCache) return staticMoviesCache;
-  try {
-    const file = Bun.file("./static-movies.json");
-    if (await file.exists()) {
-      staticMoviesCache = JSON.parse(await file.text());
-      return staticMoviesCache!;
-    }
-  } catch {}
-  return [];
+// Static movies embedded at build time (works on Vercel)
+function getStaticMovies(): Movie[] {
+  return STATIC_MOVIES as Movie[];
 }
 
 // === API Routes ===
