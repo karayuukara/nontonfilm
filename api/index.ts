@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
-import STATIC_MOVIES from "../src/data/static-movies";
+import STATIC_MOVIES from "./data/static-movies.json";
 
 const app = new Hono();
 
