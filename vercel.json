@@ -1,8 +1,10 @@
 {
-  "bunVersion": "1.x",
-  "framework": "hono",
   "buildCommand": "bun run build",
   "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/api/proxy",
