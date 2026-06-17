@@ -1,51 +1,48 @@
+// Ad slots — ganti isinya pake kode iklan dari ad network lo
+// Cara setup:
+//   1. Daftar di ad network (PropellerAds / Adsterra / Google AdSense)
+//   2. Dapetin kode script/html iklannya
+//   3. Simpan di Settings → Advanced → Secrets:
+//      - VITE_AD_CODE_TOP      = kode banner atas
+//      - VITE_AD_CODE_MID      = kode banner tengah
+//      - VITE_AD_CODE_BOTTOM   = kode banner bawah
+//      - VITE_AD_POPUNDER      = kode popunder
+//   4. Rebuild & republish sitenya
+//
+// Rekomendasi ad network buat situs streaming:
+//   • PropellerAds — gampang approve, bagus buat trafik indo
+//   • Adsterra — CPM lumayan, nerima situs film
+//   • PopAds — khusus popunder, bayaran per view
+
+const adCodes: Record<string, string> = {
+  top: (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_AD_CODE_TOP) || "",
+  mid: (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_AD_CODE_MID) || "",
+  bottom: (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_AD_CODE_BOTTOM) || "",
+  popunder: (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_AD_POPUNDER) || "",
+};
+
 export function AdBanner({ slot, className = "" }: { slot: "top" | "mid" | "bottom"; className?: string }) {
-  const adCode = (() => {
-    // Pull ad codes from env vars or use placeholder
-    switch (slot) {
-      case "top":
-        return process.env.AD_CODE_TOP || null;
-      case "mid":
-        return process.env.AD_CODE_MID || null;
-      case "bottom":
-        return process.env.AD_CODE_BOTTOM || null;
-    }
-  })();
+  const code = adCodes[slot];
+
+  if (!code) {
+    return (
+      <div className={`w-full flex justify-center ${className}`}>
+        <div className="w-full max-w-[728px] h-[90px] border border-dashed border-border/30 rounded-lg flex items-center justify-center text-xs text-muted-foreground/20">
+          iklan {slot}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className={`w-full ${className}`}>
-      {adCode ? (
-        <div
-          className="ad-slot flex justify-center overflow-hidden"
-          dangerouslySetInnerHTML={{ __html: adCode }}
-        />
-      ) : (
-        <AdPlaceholder slot={slot} />
-      )}
+    <div className={`w-full flex justify-center overflow-hidden ${className}`}>
+      <div dangerouslySetInnerHTML={{ __html: code }} />
     </div>
   );
 }
 
-function AdPlaceholder({ slot }: { slot: string }) {
-  return (
-    <div className="w-full border-2 border-dashed border-border rounded-lg bg-muted/30 flex flex-col items-center justify-center py-8 text-center">
-      <div className="text-xs text-muted-foreground font-mono uppercase tracking-wider mb-1">
-        Ad Slot: {slot}
-      </div>
-      <div className="text-xs text-muted-foreground/50">
-        Set AD_CODE_{slot.toUpperCase()} env var
-      </div>
-    </div>
-  );
-}
-
-export function PopunderScript() {
-  const popunderCode = process.env.AD_POPUNDER_CODE || null;
-  if (!popunderCode) return null;
-
-  return (
-    <div
-      dangerouslySetInnerHTML={{ __html: popunderCode }}
-      suppressHydrationWarning
-    />
-  );
+export function PopunderAd() {
+  const code = adCodes.popunder;
+  if (!code) return null;
+  return <div dangerouslySetInnerHTML={{ __html: code }} suppressHydrationWarning />;
 }

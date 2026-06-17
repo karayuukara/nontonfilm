@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Star, Clock, Globe, DollarSign, Film, Play } from "lucide-react";
-import { AdBanner, PopunderScript } from "@/components/ad-banner";
+import { AdBanner, PopunderAd } from "@/components/ad-banner";
 import type { MovieDetail } from "@/lib/tmdb";
 import { posterUrl, backdropUrl } from "@/lib/tmdb";
 
@@ -81,7 +81,7 @@ export default function MovieDetailPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <PopunderScript />
+      <PopunderAd />
 
       {/* Backdrop hero */}
       {movie.backdrop_path && (
