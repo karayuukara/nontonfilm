@@ -1,17 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Star, Clock, Globe, DollarSign, Film, Play } from "lucide-react";
+import { ArrowLeft, Star, Clock, Globe, Film, Play } from "lucide-react";
 import { AdBanner, PopunderAd } from "@/components/ad-banner";
-import type { MovieDetail } from "@/lib/tmdb";
 import { posterUrl, backdropUrl } from "@/lib/tmdb";
-
-interface VideoResult {
-  id: string;
-  key: string;
-  name: string;
-  site: string;
-  type: string;
-}
 
 const GENRE_MAP: Record<number, string> = {
   28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy",
@@ -21,44 +12,113 @@ const GENRE_MAP: Record<number, string> = {
   53: "Thriller", 10752: "War", 37: "Western",
 };
 
+interface MovieServer {
+  name: string;
+  url: (id: string, imdbId: string | null) => string;
+}
+
+const MOVIE_SERVERS: MovieServer[] = [
+  {
+    name: "VidSrc",
+    url: (id, imdb) => imdb
+      ? `https://vidsrc.to/embed/movie/${imdb}`
+      : `https://vidsrc.to/embed/movie/tmdb/${id}`,
+  },
+  {
+    name: "2Embed",
+    url: (id, imdb) => imdb
+      ? `https://www.2embed.cc/embed/${imdb}`
+      : `https://www.2embed.cc/embed/tmdb/${id}`,
+  },
+  {
+    name: "VidSrc CC",
+    url: (id, imdb) => `https://vidsrc.cc/v2/embed/movie/${id}`,
+  },
+];
+
+interface MovieData {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date: string;
+  vote_average: number;
+  vote_count: number;
+  genres: { id: number; name: string }[];
+  genre_ids?: number[];
+  runtime: number;
+  tagline: string;
+  imdb_id: string | null;
+  original_language?: string;
+}
+
 export default function MovieDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [movie, setMovie] = useState<MovieDetail | null>(null);
-  const [trailer, setTrailer] = useState<VideoResult | null>(null);
-  const [showPlayer, setShowPlayer] = useState(false);
+  const [movie, setMovie] = useState<MovieData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showPlayer, setShowPlayer] = useState(false);
+  const [activeServer, setActiveServer] = useState(0); // MOVIE_SERVERS index
 
   useEffect(() => {
     if (!id) return;
     setLoading(true);
-    // Try static data first (no API key needed)
-    fetch('/api/movies/static')
+
+    // Try live API first (scrapes TMDB website)
+    fetch(`/api/movie/${id}`)
       .then(r => r.json())
-      .then((allMovies) => {
-        const movieId = parseInt(id);
-        const found = allMovies.find((m: any) => m.id === movieId);
-        if (found) {
-          // Convert genre_ids to genres objects
-          const movieData = {
-            ...found,
-            genres: (found.genre_ids || []).map((gid: number) => ({
-              id: gid,
-              name: GENRE_MAP[gid] || "Unknown",
-            })),
-            runtime: found.runtime || 0,
-            budget: found.budget || 0,
-            revenue: found.revenue || 0,
-            tagline: found.tagline || "",
-            vote_count: found.vote_count || 0,
-          };
+      .then((data) => {
+        if (data && !data.error && data.title) {
+          const movieData = normalizeMovie(data);
           setMovie(movieData);
-          setTrailer(null);
+        } else {
+          // Fallback to static
+          return fetch("/api/movies/static")
+            .then(r => r.json())
+            .then((all) => {
+              const found = all.find((m: any) => m.id === parseInt(id || "0"));
+              if (found) setMovie(normalizeMovie(found));
+            });
         }
       })
-      .catch(() => {})
+      .catch(() => {
+        // Fallback to static
+        fetch("/api/movies/static")
+          .then(r => r.json())
+          .then((all) => {
+            const found = all.find((m: any) => m.id === parseInt(id || "0"));
+            if (found) setMovie(normalizeMovie(found));
+          })
+          .catch(() => {});
+      })
       .finally(() => setLoading(false));
   }, [id]);
+
+  function normalizeMovie(data: any): MovieData {
+    const genres = data.genres?.length
+      ? data.genres
+      : (data.genre_ids || []).map((gid: number) => ({
+          id: gid,
+          name: GENRE_MAP[gid] || "Unknown",
+        }));
+
+    return {
+      id: data.id,
+      title: data.title || "Unknown",
+      overview: data.overview || "",
+      poster_path: data.poster_path || null,
+      backdrop_path: data.backdrop_path || null,
+      release_date: data.release_date || "",
+      vote_average: data.vote_average || 0,
+      vote_count: data.vote_count || 0,
+      genres,
+      runtime: data.runtime || 0,
+      tagline: data.tagline || "",
+      imdb_id: data.imdb_id || null,
+      original_language: data.original_language || "en",
+    };
+  }
 
   if (loading) {
     return (
@@ -86,10 +146,8 @@ export default function MovieDetailPage() {
         <div className="text-center">
           <Film className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
           <h2 className="text-xl font-semibold mb-2">Film tidak ditemukan</h2>
-          <button
-            onClick={() => navigate("/")}
-            className="text-primary hover:underline"
-          >
+          <p className="text-muted-foreground mb-4">Coba refresh atau cari film lain</p>
+          <button onClick={() => navigate("/")} className="text-primary hover:underline">
             Kembali ke beranda
           </button>
         </div>
@@ -100,12 +158,12 @@ export default function MovieDetailPage() {
   const year = movie.release_date ? new Date(movie.release_date).getFullYear() : "TBA";
   const runtime = movie.runtime ? `${Math.floor(movie.runtime / 60)}h ${movie.runtime % 60}m` : "N/A";
   const poster = posterUrl(movie.poster_path, "w500");
+  const lang = (movie.original_language || "en").toUpperCase();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <PopunderAd />
 
-      {/* Backdrop hero */}
       {movie.backdrop_path && (
         <div className="relative h-[300px] md:h-[400px] overflow-hidden">
           <img
@@ -117,8 +175,7 @@ export default function MovieDetailPage() {
         </div>
       )}
 
-      <div className="max-w-5xl mx-auto px-4 -mt-32 relative z-10">
-        {/* Back button */}
+      <div className={`max-w-5xl mx-auto px-4 ${movie.backdrop_path ? "-mt-32" : "pt-8"} relative z-10`}>
         <button
           onClick={() => navigate("/")}
           className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white mb-6 transition-colors"
@@ -127,84 +184,68 @@ export default function MovieDetailPage() {
         </button>
 
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Poster */}
           <div className="shrink-0 mx-auto md:mx-0">
             <img
               src={poster}
               alt={movie.title}
               className="w-64 rounded-lg shadow-2xl"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "data:image/svg+xml," + encodeURIComponent(
-                  `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="384" fill="%23333"><rect width="256" height="384"/><text fill="%23666" font-size="40" text-anchor="middle" x="128" y="200">🎬</text></svg>`
-                );
+                (e.target as HTMLImageElement).src =
+                  "data:image/svg+xml," +
+                  encodeURIComponent(
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="384" fill="%23333"><rect width="256" height="384"/><text fill="%23666" font-size="40" text-anchor="middle" x="128" y="200">🎬</text></svg>`
+                  );
               }}
             />
           </div>
 
-          {/* Info */}
           <div className="flex-1 space-y-4">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
-              {movie.tagline && (
-                <p className="text-muted-foreground italic mt-1">{movie.tagline}</p>
-              )}
+              {movie.tagline && <p className="text-muted-foreground italic mt-1">{movie.tagline}</p>}
             </div>
 
-            {/* Meta */}
             <div className="flex flex-wrap items-center gap-3 text-sm">
-              <span className="flex items-center gap-1 bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded-md">
-                <Star className="w-4 h-4 fill-current" />
-                {movie.vote_average.toFixed(1)} ({movie.vote_count.toLocaleString()} suara)
-              </span>
+              {movie.vote_average > 0 && (
+                <span className="flex items-center gap-1 bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded-md">
+                  <Star className="w-4 h-4 fill-current" />
+                  {movie.vote_average.toFixed(1)}
+                  {movie.vote_count > 0 && ` (${movie.vote_count.toLocaleString()} suara)`}
+                </span>
+              )}
               <span className="flex items-center gap-1 text-muted-foreground">
                 <Clock className="w-4 h-4" /> {runtime}
               </span>
               <span className="text-muted-foreground">{year}</span>
               <span className="flex items-center gap-1 text-muted-foreground">
-                <Globe className="w-4 h-4" /> {movie.original_language.toUpperCase()}
+                <Globe className="w-4 h-4" /> {lang}
               </span>
             </div>
 
-            {/* Genres */}
             <div className="flex flex-wrap gap-2">
-              {movie.genres.map(g => (
+              {movie.genres.map((g) => (
                 <span key={g.id} className="text-xs px-3 py-1 rounded-full bg-secondary text-secondary-foreground">
                   {g.name}
                 </span>
               ))}
             </div>
 
-            {/* Overview */}
             <div>
               <h3 className="text-lg font-semibold mb-2">Sinopsis</h3>
               <p className="text-muted-foreground leading-relaxed">
                 {movie.overview || "Tidak ada sinopsis tersedia."}
               </p>
             </div>
-
-            {/* Budget / Revenue */}
-            <div className="flex gap-6 text-sm">
-              {movie.budget > 0 && (
-                <div>
-                  <span className="text-muted-foreground">Budget</span>
-                  <p className="font-semibold">${(movie.budget / 1_000_000).toFixed(0)}M</p>
-                </div>
-              )}
-              {movie.revenue > 0 && (
-                <div>
-                  <span className="text-muted-foreground">Revenue</span>
-                  <p className="font-semibold">${(movie.revenue / 1_000_000).toFixed(0)}M</p>
-                </div>
-              )}
-            </div>
           </div>
         </div>
 
-        {/* Watch Now Section */}
+        {/* Player Section */}
         <div className="mt-8">
           {!showPlayer ? (
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-black flex items-center justify-center cursor-pointer group"
-                 onClick={() => setShowPlayer(true)}>
+            <div
+              className="relative aspect-video rounded-lg overflow-hidden bg-black flex items-center justify-center cursor-pointer group"
+              onClick={() => setShowPlayer(true)}
+            >
               {movie.backdrop_path ? (
                 <img
                   src={backdropUrl(movie.backdrop_path, "w1280")}
@@ -224,12 +265,32 @@ export default function MovieDetailPage() {
             </div>
           ) : (
             <div>
-              {/* Top ad before player */}
+              {/* Ad above player */}
               <AdBanner slot="top" className="mb-3" />
 
+              {/* Server selector */}
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs text-muted-foreground">Server:</span>
+                {MOVIE_SERVERS.map((s, i) => (
+                  <button
+                    key={s.name}
+                    onClick={() => setActiveServer(i)}
+                    className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                      activeServer === i
+                        ? "bg-red-600 text-white shadow-sm"
+                        : "bg-secondary text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {s.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* Player iframe */}
               <div className="relative aspect-video rounded-lg overflow-hidden bg-black shadow-2xl shadow-red-500/10">
                 <iframe
-                  src={`https://vidsrc.to/embed/movie/tmdb/${id}`}
+                  key={`${activeServer}-${id}`}
+                  src={MOVIE_SERVERS[activeServer].url(id!, movie.imdb_id)}
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
                   title={`Nonton ${movie.title}`}
@@ -237,17 +298,16 @@ export default function MovieDetailPage() {
                 />
               </div>
 
-              {/* Bottom ad after player */}
+              {/* Ad below player */}
               <AdBanner slot="bottom" className="mt-3 mb-8" />
 
               <p className="text-xs text-muted-foreground text-center mt-2">
-                Video disediakan oleh penyedia pihak ketiga. Jika tidak muncul, coba refresh halaman.
+                Video disediakan oleh pihak ketiga. Ganti server di atas jika video tidak muncul.
               </p>
             </div>
           )}
         </div>
 
-        {/* Mid Ad */}
         <AdBanner slot="mid" className="my-8" />
       </div>
     </div>
