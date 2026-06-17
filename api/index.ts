@@ -57,16 +57,20 @@ async function scrapeMovieDetail(tmdbId: number): Promise<Movie | null> {
 
     let ld: any = null;
     for (const m of ldMatch) {
-      const json = m.replace(/<script\s+type="application\/ld\+json"[^>]*>/, "").replace(/<\/script>/, "");
+      let json = m.replace(/<script\s+type=\"application\/ld\+json\"[^>]*>/, "").replace(/<\/script>/, "");
+      // Strip CDATA wrapper that TMDB adds: /* <![CDATA[ */ ... */
+      json = json.replace(/\/\*\s*<!\[CDATA\[\s*\*\/\s*/g, "").replace(/\s*\/\*\s*\]\]>\s*\*\//g, "");
       try {
-        const data = JSON.parse(json);
+        const data = JSON.parse(json.trim());
         if (data["@type"] === "Movie") { ld = data; break; }
       } catch {}
     }
     if (!ld) return null;
 
-    const posterMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/w\d+\/([^"']+)/);
-    const backdropMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/original\/([^"']+)/);
+    const posterMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/w\d+\/([^"'\s]+)/);
+    const backdropMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/original\/([^"'\s]+)/);
+    // Fallback: og:image meta
+    const ogImageMatch = !posterMatch ? html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i) : null;
 
     const genreMatches = html.matchAll(/<a\s+href="\/genre\/\d+[^"]*"[^>]*>([^<]+)<\/a>/gi);
     const genres: string[] = [];
@@ -81,7 +85,7 @@ async function scrapeMovieDetail(tmdbId: number): Promise<Movie | null> {
       id: tmdbId,
       title: ld.name || "Unknown",
       overview: ld.description || "",
-      poster_path: posterMatch ? "/" + posterMatch[1] : null,
+      poster_path: posterMatch ? "/" + posterMatch[1] : ogImageMatch ? ogImageMatch[1] : null,
       backdrop_path: backdropMatch ? "/" + backdropMatch[1] : null,
       release_date: ld.datePublished || "",
       vote_average: ld.aggregateRating?.ratingValue || 0,

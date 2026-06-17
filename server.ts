@@ -108,17 +108,20 @@ async function scrapeMovieDetail(tmdbId: number): Promise<Movie | null> {
 
     let ld: any = null;
     for (const m of ldMatch) {
-      const json = m.replace(/<script\s+type="application\/ld\+json"[^>]*>/, "").replace(/<\/script>/, "");
+      let json = m.replace(/<script\s+type=\"application\/ld\+json\"[^>]*>/, "").replace(/<\/script>/, "");
+      // Strip CDATA wrapper that TMDB adds: /* <![CDATA[ */ ... */
+      json = json.replace(/\/\*\s*<!\[CDATA\[\s*\*\/\s*/g, "").replace(/\s*\/\*\s*\]\]>\s*\*\//g, "");
       try {
-        const data = JSON.parse(json);
+        const data = JSON.parse(json.trim());
         if (data["@type"] === "Movie") { ld = data; break; }
       } catch {}
     }
     if (!ld) return null;
 
     // Extract poster & backdrop from page
-    const posterMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/w\d+\/([^"']+)/);
-    const backdropMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/original\/([^"']+)/);
+    const posterMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/w\d+\/([^"'\s]+)/);
+    const ogImageMatch = html.match(/<meta\s+property="og:image"\s+content="(https:\/\/image\.tmdb\.org\/[^"]+)"/);
+    const backdropMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/original\/([^"'\s]+)/);
 
     // Genres
     const genreMatches = html.matchAll(/<a\s+href="\/genre\/\d+[^"]*"[^>]*>([^<]+)<\/a>/gi);
@@ -132,13 +135,13 @@ async function scrapeMovieDetail(tmdbId: number): Promise<Movie | null> {
     const tagline = taglineMatch ? taglineMatch[1].trim() : "";
 
     // IMDb ID for vidsrc
-    const imdbMatch = html.match(/tt(\d{7,8})/);
+    const imdbMatch = html.match(/"imdb_id":"(tt\d{7,8})"/);
 
     return {
       id: tmdbId,
       title: ld.name || "Unknown",
       overview: ld.description || "",
-      poster_path: posterMatch ? "/" + posterMatch[1] : null,
+      poster_path: posterMatch ? "/" + posterMatch[1] : ogImageMatch ? ogImageMatch[1] : null,
       backdrop_path: backdropMatch ? "/" + backdropMatch[1] : null,
       release_date: ld.datePublished || "",
       vote_average: ld.aggregateRating?.ratingValue || 0,
@@ -233,6 +236,20 @@ app.get("/api/movies/search", async (c) => {
     total_results: scored.length,
   };
 
+  // If static search yields few results, also try TMDB search
+  if (scored.length < 3) {
+    try {
+      const tmdbResults = await scrapeTMDbSearch(query);
+      if (tmdbResults.results.length > 0) {
+        const existingIds = new Set(scored.map(m => m.id));
+        const merged = [...scored, ...tmdbResults.results.filter(r => !existingIds.has(r.id))];
+        data.results = merged.slice(0, 20);
+        data.total_results = merged.length;
+        data.total_pages = tmdbResults.total_pages;
+      }
+    } catch {}
+  }
+
   setCache(cacheKey, data);
   return c.json(data);
 });
@@ -281,6 +298,45 @@ app.get("/api/movies/popular", async (c) => {
 app.get("/api/movies/static", async (c) => {
   const movies = await getStaticMovies();
   return c.json(movies);
+});
+
+// === Proxy for embed video servers ===
+app.get("/api/proxy", async (c) => {
+  const url = c.req.query("url");
+  if (!url) return c.json({ error: "Missing url param" }, 400);
+
+  try {
+    const parsed = new URL(url);
+    const allowedHosts = [
+      "vidsrc.to", "www.2embed.cc", "vidsrc.cc",
+      "vidlink.pro", "moviesapi.club", "2embed.org",
+      "embed.su", "vidsrc.xyz", "vidsrc.me",
+    ];
+    if (!allowedHosts.some(h => parsed.hostname === h || parsed.hostname.endsWith("." + h))) {
+      return c.json({ error: "Host not allowed" }, 403);
+    }
+
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+        "Accept": "*/*",
+        "Referer": parsed.origin,
+        "Origin": parsed.origin,
+      },
+      redirect: "follow",
+    });
+
+    const contentType = response.headers.get("content-type") || "text/html";
+    const headers = new Headers();
+    headers.set("Content-Type", contentType);
+    headers.set("Access-Control-Allow-Origin", "*");
+    headers.set("X-Frame-Options", "ALLOWALL");
+
+    const body = await response.arrayBuffer();
+    return new Response(body, { status: response.status, headers });
+  } catch (err: any) {
+    return c.json({ error: "Proxy error", detail: err.message }, 502);
+  }
 });
 
 // === Production / Development routing ===
