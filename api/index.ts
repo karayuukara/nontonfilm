@@ -1,6 +1,6 @@
-import STATIC_MOVIES from "../src/data/static-movies";
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
+import STATIC_MOVIES from "../src/data/static-movies";
 
 const app = new Hono();
 
@@ -13,13 +13,14 @@ interface Movie {
   release_date: string;
   vote_average: number;
   vote_count: number;
-  genres: string[];
-  runtime: number;
-  tagline: string;
+  genre_ids?: number[];
+  genres?: string[];
+  runtime?: number;
+  tagline?: string;
   popularity?: number;
+  original_language?: string;
 }
 
-// In-memory cache
 const cache = new Map<string, { data: unknown; ts: number }>();
 const CACHE_TTL = 60 * 60 * 1000;
 
@@ -33,44 +34,36 @@ function setCache(key: string, data: unknown) {
   cache.set(key, { data, ts: Date.now() });
 }
 
-// TMDB website scraper (no API key needed)
-const TMDb_BASE = "https://www.themoviedb.org";
+const TMDB_BASE = "https://www.themoviedb.org";
 
 async function fetchHTML(url: string): Promise<string> {
   const res = await fetch(url, {
     headers: {
-      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+      "Accept": "text/html,application/xhtml+xml",
       "Accept-Language": "id-ID,id;q=0.9,en;q=0.8",
     },
   });
-  if (!res.ok) throw new Error(`TMDB error: ${res.status}`);
+  if (!res.ok) throw new Error(`TMDB: ${res.status}`);
   return res.text();
 }
 
 async function scrapeMovieDetail(tmdbId: number): Promise<Movie | null> {
   try {
-    const url = `${TMDb_BASE}/movie/${tmdbId}`;
-    const html = await fetchHTML(url);
-
+    const html = await fetchHTML(`${TMDB_BASE}/movie/${tmdbId}`);
     const ldMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
     if (!ldMatch) return null;
 
     let ld: any = null;
     for (const m of ldMatch) {
-      let json = m.replace(/<script\s+type=\"application\/ld\+json\"[^>]*>/, "").replace(/<\/script>/, "");
-      // Strip CDATA wrapper that TMDB adds: /* <![CDATA[ */ ... */
+      let json = m.replace(/<script\s+type="application\/ld\+json"[^>]*>/, "").replace(/<\/script>/, "");
       json = json.replace(/\/\*\s*<!\[CDATA\[\s*\*\/\s*/g, "").replace(/\s*\/\*\s*\]\]>\s*\*\//g, "");
-      try {
-        const data = JSON.parse(json.trim());
-        if (data["@type"] === "Movie") { ld = data; break; }
-      } catch {}
+      try { const d = JSON.parse(json.trim()); if (d["@type"] === "Movie") { ld = d; break; } } catch {}
     }
     if (!ld) return null;
 
     const posterMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/w\d+\/([^"'\s]+)/);
     const backdropMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/original\/([^"'\s]+)/);
-    // Fallback: og:image meta
     const ogImageMatch = !posterMatch ? html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i) : null;
 
     const genreMatches = html.matchAll(/<a\s+href="\/genre\/\d+[^"]*"[^>]*>([^<]+)<\/a>/gi);
@@ -83,38 +76,30 @@ async function scrapeMovieDetail(tmdbId: number): Promise<Movie | null> {
     const tagline = taglineMatch ? taglineMatch[1].trim() : "";
 
     return {
-      id: tmdbId,
-      title: ld.name || "Unknown",
-      overview: ld.description || "",
+      id: tmdbId, title: ld.name || "Unknown", overview: ld.description || "",
       poster_path: posterMatch ? "/" + posterMatch[1] : ogImageMatch ? ogImageMatch[1] : null,
       backdrop_path: backdropMatch ? "/" + backdropMatch[1] : null,
       release_date: ld.datePublished || "",
       vote_average: ld.aggregateRating?.ratingValue || 0,
       vote_count: ld.aggregateRating?.ratingCount || 0,
-      genres,
-      runtime,
-      tagline,
+      genres, runtime, tagline,
     };
-  } catch {
-    return null;
-  }
+  } catch { return null; }
 }
 
 async function scrapePopularMovies(): Promise<Movie[]> {
   try {
-    const html = await fetchHTML(`${TMDb_BASE}/movie`);
+    const html = await fetchHTML(`${TMDB_BASE}/movie`);
     const cardRegex = /<a\s+href="\/movie\/(\d+)[^"]*"[^>]*>[\s\S]*?<h2[^>]*>(.*?)<\/h2>/gi;
     const results: Movie[] = [];
     let match;
     const seen = new Set<number>();
-
     while ((match = cardRegex.exec(html)) !== null) {
       const id = parseInt(match[1]);
       if (seen.has(id)) continue;
       seen.add(id);
       results.push({
-        id,
-        title: match[2].replace(/<[^>]+>/g, "").trim(),
+        id, title: match[2].replace(/<[^>]+>/g, "").trim(),
         overview: "", poster_path: null, backdrop_path: null,
         release_date: "", vote_average: 0, vote_count: 0,
         genres: [], runtime: 0, tagline: "",
@@ -122,157 +107,107 @@ async function scrapePopularMovies(): Promise<Movie[]> {
       if (results.length >= 60) break;
     }
     return results;
-  } catch {
-    return [];
-  }
+  } catch { return []; }
 }
 
-function getStaticMovies(): Movie[] {
-  return STATIC_MOVIES as Movie[];
-}
+// ═══ Routes ═══
 
-// Search
-app.get("/api/movies/search", async (c) => {
-  const query = c.req.query("query") || "";
-  const normalizedQuery = query.trim().toLowerCase();
-  if (normalizedQuery.length < 2) {
-    return c.json({ results: [], total_pages: 0, total_results: 0 });
-  }
+app.get("/api/health", (c) => c.json({ ok: true, movies: STATIC_MOVIES.length }));
 
-  const cacheKey = `search:${normalizedQuery}`;
-  const hit = cached(cacheKey);
+app.get("/api/movies/static", (c) => c.json(STATIC_MOVIES));
+
+app.get("/api/movies/search", (c) => {
+  const q = (c.req.query("query") || "").trim().toLowerCase();
+  if (q.length < 2) return c.json({ results: [], total_pages: 0, total_results: 0 });
+
+  const ck = `search:${q}`;
+  const hit = cached(ck);
   if (hit) return c.json(hit);
 
-  const all = getStaticMovies();
-  const queryTokens = normalizedQuery.split(/\s+/).filter(Boolean);
-
-  const scored = all
-    .map((movie) => {
-      const title = (movie.title || "").toLowerCase();
+  const tokens = q.split(/\s+/).filter(Boolean);
+  const scored = STATIC_MOVIES
+    .map((m: any) => {
+      const title = (m.title || "").toLowerCase();
       const titleTokens = title.split(/[^a-z0-9]+/).filter(Boolean);
       let score = 0;
-
-      if (title === normalizedQuery) score += 100;
-      if (title.includes(normalizedQuery)) score += 60;
-
-      for (const token of queryTokens) {
-        if (!token) continue;
-        if (title.includes(token)) score += 10;
-        if (titleTokens.some((t) => t.startsWith(token))) score += 14;
+      if (title === q) score += 100;
+      if (title.includes(q)) score += 60;
+      for (const t of tokens) {
+        if (title.includes(t)) score += 10;
+        if (titleTokens.some((x: string) => x.startsWith(t))) score += 14;
       }
-
-      const lengthDelta = Math.abs(title.length - normalizedQuery.length);
-      score += Math.max(0, 8 - Math.min(8, Math.floor(lengthDelta / 4)));
-
-      return { movie, score };
+      score += Math.max(0, 8 - Math.min(8, Math.floor(Math.abs(title.length - q.length) / 4)));
+      return { movie: m, score };
     })
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score || (b.movie.popularity || 0) - (a.movie.popularity || 0))
-    .map((item) => item.movie);
+    .filter((x: any) => x.score > 0)
+    .sort((a: any, b: any) => b.score - a.score || (b.movie.popularity || 0) - (a.movie.popularity || 0))
+    .map((x: any) => x.movie);
 
-  const data = {
-    results: scored.slice(0, 20),
-    total_pages: 1,
-    total_results: scored.length,
-  };
-
-  setCache(cacheKey, data);
+  const data = { results: scored.slice(0, 20), total_pages: 1, total_results: scored.length };
+  setCache(ck, data);
   return c.json(data);
 });
 
-// Movie detail
 app.get("/api/movie/:id", async (c) => {
   const id = parseInt(c.req.param("id"));
   if (isNaN(id)) return c.json({ error: "Invalid ID" }, 400);
 
-  const cacheKey = `movie:${id}`;
-  const hit = cached(cacheKey);
+  const ck = `movie:${id}`;
+  const hit = cached(ck);
   if (hit) return c.json(hit);
 
   try {
     const detail = await scrapeMovieDetail(id);
-    if (detail) {
-      setCache(cacheKey, detail);
-      return c.json(detail);
-    }
+    if (detail) { setCache(ck, detail); return c.json(detail); }
   } catch {}
 
-  const staticMovies = getStaticMovies();
-  const found = staticMovies.find(m => m.id === id);
+  const found = STATIC_MOVIES.find((m: any) => m.id === id);
   if (found) return c.json(found);
-
-  return c.json({ error: "Movie not found" }, 404);
+  return c.json({ error: "Not found" }, 404);
 });
 
-// Popular
 app.get("/api/movies/popular", async (c) => {
   const hit = cached("popular");
   if (hit) return c.json(hit);
-
   try {
     const movies = await scrapePopularMovies();
     setCache("popular", movies);
     return c.json(movies);
-  } catch {
-    return c.json(getStaticMovies());
-  }
+  } catch { return c.json(STATIC_MOVIES); }
 });
 
-// Static fallback
-app.get("/api/movies/static", async (c) => {
-  return c.json(getStaticMovies());
-});
-
-// ═══════════════════════════════════════════════════════════════
-// Embed Proxy — bypasses 2Embed/VidSrc iframe detection
-// ═══════════════════════════════════════════════════════════════
-const PROXY_REWRITE_HOSTS = [
-  "vidsrc.to", "www.2embed.cc", "2embed.cc", "vidsrc.cc",
-  "vidcloud.xyz", "vidstream.pro", "streamtape.com",
-];
+// Embed Proxy
+const PROXY_HOSTS = ["vidsrc.to", "2embed.cc", "vidsrc.cc", "vidcloud.xyz", "vidstream.pro", "streamtape.com"];
 
 async function proxyEmbed(url: string, c: any): Promise<Response> {
   const target = new URL(url);
-
   const res = await fetch(url, {
     headers: {
-      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
-      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+      "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
       "Accept-Language": "en-US,en;q=0.9",
     },
     redirect: "follow",
   });
 
-  const contentType = res.headers.get("content-type") || "";
-
-  if (contentType.includes("text/html")) {
+  const ct = res.headers.get("content-type") || "";
+  if (ct.includes("text/html")) {
     let body = await res.text();
     const proxyBase = `${new URL(c.req.url).origin}/api/proxy?url=`;
 
-    // Rewrite absolute URLs pointing to known hosts
-    for (const host of PROXY_REWRITE_HOSTS) {
-      const pattern = new RegExp(`https?://(?:[^/]*\\.)?${host.replace(/\./g, "\\.")}`, "gi");
-      body = body.replace(pattern, (match: string) => {
-        const u = new URL(match);
-        u.searchParams.set("_from_proxy", "1");
+    for (const host of PROXY_HOSTS) {
+      const p = new RegExp(`https?://(?:[^/]*\\.)?${host.replace(/\./g, "\\.")}`, "gi");
+      body = body.replace(p, (m: string) => {
+        const u = new URL(m); u.searchParams.set("_from_proxy", "1");
         return `${proxyBase}${encodeURIComponent(u.toString())}`;
       });
     }
 
-    // Rewrite relative URLs (src="/...", href="/...", action="/...")
-    body = body.replace(
-      /(src|href|action)=["'](\/[^"']*)["']/gi,
-      (_m: string, attr: string, path: string) => {
-        const abs = new URL(path, target.origin).toString();
-        return `${attr}="${proxyBase}${encodeURIComponent(abs)}"`;
-      }
-    );
+    body = body.replace(/(src|href|action)=["'](\/[^"']*)["']/gi, (_m: string, attr: string, path: string) =>
+      `${attr}="${proxyBase}${encodeURIComponent(new URL(path, target.origin).toString())}"`);
 
-    // Patch window.top / window.parent to prevent iframe detection
-    body = body.replace(
-      /<\/head>/i,
-      `<script>Object.defineProperty(window,'top',{get:()=>window});Object.defineProperty(window,'parent',{get:()=>window});Object.defineProperty(window,'frameElement',{get:()=>null});<\/script></head>`
-    );
+    body = body.replace(/<\/head>/i,
+      `<script>Object.defineProperty(window,'top',{get:()=>window});Object.defineProperty(window,'parent',{get:()=>window});Object.defineProperty(window,'frameElement',{get:()=>null});<\/script></head>`);
 
     return new Response(body, {
       status: res.status,
@@ -280,26 +215,17 @@ async function proxyEmbed(url: string, c: any): Promise<Response> {
     });
   }
 
-  // For non-HTML (JS, CSS, images, etc.) — pass through
   return new Response(res.body, {
     status: res.status,
-    headers: {
-      "Content-Type": contentType,
-      "Cache-Control": "public, max-age=86400",
-      "Access-Control-Allow-Origin": "*",
-    },
+    headers: { "Content-Type": ct, "Cache-Control": "public, max-age=86400", "Access-Control-Allow-Origin": "*" },
   });
 }
 
 app.get("/api/proxy", async (c) => {
   const url = c.req.query("url");
   if (!url) return c.json({ error: "url required" }, 400);
-
-  try {
-    return await proxyEmbed(url, c);
-  } catch (err: any) {
-    return c.json({ error: err.message || "proxy failed" }, 502);
-  }
+  try { return await proxyEmbed(url, c); }
+  catch (e: any) { return c.json({ error: e.message || "proxy failed" }, 502); }
 });
 
 export default handle(app);
