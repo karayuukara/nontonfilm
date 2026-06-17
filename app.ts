@@ -1,5 +1,6 @@
 import { Hono } from "hono";
-import STATIC_MOVIES from "./data/static-movies.json";
+import { serveStatic } from "hono/bun";
+import STATIC_MOVIES from "./api/data/static-movies.json";
 
 const app = new Hono();
 
@@ -109,7 +110,7 @@ async function scrapePopularMovies(): Promise<Movie[]> {
   } catch { return []; }
 }
 
-// ═══ Routes ═══
+// ═══ API Routes ═══
 
 app.get("/api/health", (c) => c.json({ ok: true, movies: STATIC_MOVIES.length }));
 
@@ -226,5 +227,10 @@ app.get("/api/proxy", async (c) => {
   try { return await proxyEmbed(url, c); }
   catch (e: any) { return c.json({ error: e.message || "proxy failed" }, 502); }
 });
+
+// ═══ Static files (SPA frontend) ═══
+app.use("/assets/*", serveStatic({ root: "./dist" }));
+app.get("/favicon.svg", (c) => c.redirect("/favicon.svg", 302));
+app.get("/*", serveStatic({ path: "./dist/index.html" }));
 
 export default app;
