@@ -1,5 +1,6 @@
 import STATIC_MOVIES from "../src/data/static-movies";
 import { Hono } from "hono";
+import { handle } from "hono/vercel";
 
 const app = new Hono();
 
@@ -301,4 +302,4 @@ app.get("/api/proxy", async (c) => {
   }
 });
 
-export default app;
+export default handle(app);
