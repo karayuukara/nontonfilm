@@ -218,4 +218,83 @@ app.get("/api/movies/static", async (c) => {
   return c.json(getStaticMovies());
 });
 
+// ═══════════════════════════════════════════════════════════════
+// Embed Proxy — bypasses 2Embed/VidSrc iframe detection
+// ═══════════════════════════════════════════════════════════════
+const PROXY_REWRITE_HOSTS = [
+  "vidsrc.to", "www.2embed.cc", "2embed.cc", "vidsrc.cc",
+  "vidcloud.xyz", "vidstream.pro", "streamtape.com",
+];
+
+async function proxyEmbed(url: string, c: any): Promise<Response> {
+  const target = new URL(url);
+
+  const res = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+    },
+    redirect: "follow",
+  });
+
+  const contentType = res.headers.get("content-type") || "";
+
+  if (contentType.includes("text/html")) {
+    let body = await res.text();
+    const proxyBase = `${new URL(c.req.url).origin}/api/proxy?url=`;
+
+    // Rewrite absolute URLs pointing to known hosts
+    for (const host of PROXY_REWRITE_HOSTS) {
+      const pattern = new RegExp(`https?://(?:[^/]*\\.)?${host.replace(/\./g, "\\.")}`, "gi");
+      body = body.replace(pattern, (match: string) => {
+        const u = new URL(match);
+        u.searchParams.set("_from_proxy", "1");
+        return `${proxyBase}${encodeURIComponent(u.toString())}`;
+      });
+    }
+
+    // Rewrite relative URLs (src="/...", href="/...", action="/...")
+    body = body.replace(
+      /(src|href|action)=["'](\/[^"']*)["']/gi,
+      (_m: string, attr: string, path: string) => {
+        const abs = new URL(path, target.origin).toString();
+        return `${attr}="${proxyBase}${encodeURIComponent(abs)}"`;
+      }
+    );
+
+    // Patch window.top / window.parent to prevent iframe detection
+    body = body.replace(
+      /<\/head>/i,
+      `<script>Object.defineProperty(window,'top',{get:()=>window});Object.defineProperty(window,'parent',{get:()=>window});Object.defineProperty(window,'frameElement',{get:()=>null});<\/script></head>`
+    );
+
+    return new Response(body, {
+      status: res.status,
+      headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=3600" },
+    });
+  }
+
+  // For non-HTML (JS, CSS, images, etc.) — pass through
+  return new Response(res.body, {
+    status: res.status,
+    headers: {
+      "Content-Type": contentType,
+      "Cache-Control": "public, max-age=86400",
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
+}
+
+app.get("/api/proxy", async (c) => {
+  const url = c.req.query("url");
+  if (!url) return c.json({ error: "url required" }, 400);
+
+  try {
+    return await proxyEmbed(url, c);
+  } catch (err: any) {
+    return c.json({ error: err.message || "proxy failed" }, 502);
+  }
+});
+
 export default app;

@@ -20,19 +20,28 @@ interface MovieServer {
 const MOVIE_SERVERS: MovieServer[] = [
   {
     name: "VidSrc",
-    url: (id, imdb) => imdb
-      ? `https://vidsrc.to/embed/movie/${imdb}`
-      : `https://vidsrc.to/embed/movie/tmdb/${id}`,
+    url: (id, imdb) => {
+      const embedUrl = imdb
+        ? `https://vidsrc.to/embed/movie/${imdb}`
+        : `https://vidsrc.to/embed/movie/tmdb/${id}`;
+      return `/api/proxy?url=${encodeURIComponent(embedUrl)}`;
+    },
   },
   {
     name: "2Embed",
-    url: (id, imdb) => imdb
-      ? `https://www.2embed.cc/embed/${imdb}`
-      : `https://www.2embed.cc/embed/tmdb/${id}`,
+    url: (id, imdb) => {
+      const embedUrl = imdb
+        ? `https://www.2embed.cc/embed/${imdb}`
+        : `https://www.2embed.cc/embed/tmdb/${id}`;
+      return `/api/proxy?url=${encodeURIComponent(embedUrl)}`;
+    },
   },
   {
     name: "VidSrc CC",
-    url: (id, imdb) => `https://vidsrc.cc/v2/embed/movie/${id}`,
+    url: (id, imdb) => {
+      const embedUrl = `https://vidsrc.cc/v2/embed/movie/${id}`;
+      return `/api/proxy?url=${encodeURIComponent(embedUrl)}`;
+    },
   },
 ];
 
@@ -292,9 +301,10 @@ export default function MovieDetailPage() {
                   key={`${activeServer}-${id}`}
                   src={MOVIE_SERVERS[activeServer].url(id!, movie.imdb_id)}
                   allowFullScreen
+                  allow="autoplay; fullscreen"
+                  referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full"
                   title={`Nonton ${movie.title}`}
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                 />
               </div>
 
