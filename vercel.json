@@ -1,19 +1,9 @@
 {
-  "functions": {
-    "server.ts": {
-      "runtime": "bun.sh@latest",
-      "memory": 256,
-      "maxDuration": 30
-    }
-  },
+  "bunVersion": "1.x",
+  "buildCommand": "bun run build",
+  "outputDirectory": "dist",
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/server.ts"
-    },
-    {
-      "source": "/((?!assets/).*)",
-      "destination": "/server.ts"
-    }
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
