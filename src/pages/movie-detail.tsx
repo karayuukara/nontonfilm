@@ -13,6 +13,14 @@ interface VideoResult {
   type: string;
 }
 
+const GENRE_MAP: Record<number, string> = {
+  28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy",
+  80: "Crime", 99: "Documentary", 18: "Drama", 10751: "Family",
+  14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music",
+  9648: "Mystery", 10749: "Romance", 878: "Sci-Fi", 10770: "TV Movie",
+  53: "Thriller", 10752: "War", 37: "Western",
+};
+
 export default function MovieDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -30,7 +38,20 @@ export default function MovieDetailPage() {
         const movieId = parseInt(id);
         const found = allMovies.find((m: any) => m.id === movieId);
         if (found) {
-          setMovie(found);
+          // Convert genre_ids to genres objects
+          const movieData = {
+            ...found,
+            genres: (found.genre_ids || []).map((gid: number) => ({
+              id: gid,
+              name: GENRE_MAP[gid] || "Unknown",
+            })),
+            runtime: found.runtime || 0,
+            budget: found.budget || 0,
+            revenue: found.revenue || 0,
+            tagline: found.tagline || "",
+            vote_count: found.vote_count || 0,
+          };
+          setMovie(movieData);
           setTrailer(null);
         }
       })
