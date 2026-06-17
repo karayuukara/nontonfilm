@@ -1,0 +1,1103 @@
+[
+  {
+    "tmdb_id": "980431",
+    "title": "Avatar Aang: The Last Airbender",
+    "description": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
+    "poster": "https://image.tmdb.org/t/p/w500/29Jdsak3SrwGds5k1t43kH6Khed.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/sS3zGYFPcfM5pArVNWl6qLyaSmU.jpg",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Fantasy"
+    ],
+    "duration": "PT1H39M",
+    "release_date": "2026-10-09",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/980431-avatar-aang-the-last-airbender",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2022-05-26T20:55:17Z",
+      "dateModified": "2026-06-04T18:38:57Z",
+      "description": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
+      "isFamilyFriendly": true,
+      "name": "Avatar Aang: The Last Airbender",
+      "url": "https://www.themoviedb.org/movie/980431-avatar-aang-the-last-airbender",
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H39M",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Fantasy"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/29Jdsak3SrwGds5k1t43kH6Khed.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-10-09"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "350",
+    "title": "The Devil Wears Prada",
+    "description": "A young woman from the Midwest gets more than she bargained for when she moves to New York to become a writer and ends up as the assistant to the tyrannical, larger-than-life editor-in-chief of a major fashion magazine.",
+    "poster": "https://image.tmdb.org/t/p/w500/8912AsVuS7Sj915apArUFbv6F9L.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/gkh6Nt8DtY1XT4gQsyFq9XAVJlJ.jpg",
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "duration": "PT1H49M",
+    "release_date": "2006-06-29",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/350-the-devil-wears-prada",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2010-04-16T16:19:19Z",
+      "dateModified": "2026-06-12T08:57:15Z",
+      "description": "A young woman from the Midwest gets more than she bargained for when she moves to New York to become a writer and ends up as the assistant to the tyrannical, larger-than-life editor-in-chief of a major fashion magazine.",
+      "isFamilyFriendly": true,
+      "name": "The Devil Wears Prada",
+      "url": "https://www.themoviedb.org/movie/350-the-devil-wears-prada",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.434,
+        "ratingCount": 13730,
+        "worstRating": 0,
+        "reviewCount": 3
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H49M",
+      "genre": [
+        "Drama",
+        "Comedy"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/8912AsVuS7Sj915apArUFbv6F9L.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2006-06-29"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1305781",
+    "title": "Blades of the Guardians",
+    "description": "Dao Ma, the \"second most wanted fugitive,\" is entrusted by his benefactor, the chief of Mo family clan, to take on a mysterious escort mission-escorting the \"most wanted fugitive\" to Chang'an.",
+    "poster": "https://image.tmdb.org/t/p/w500/AbunjMKX4P1sDNlKfhYrWkIoRD9.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/cYyNJzwhaj7aC4uTlUctrfaERbf.jpg",
+    "genres": [
+      "Action",
+      "Drama",
+      "History"
+    ],
+    "duration": "PT2H6M",
+    "release_date": "2026-02-17",
+    "country": [
+      "China"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1305781",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2024-06-17T17:56:00Z",
+      "dateModified": "2026-06-14T17:35:33Z",
+      "description": "Dao Ma, the \"second most wanted fugitive,\" is entrusted by his benefactor, the chief of Mo family clan, to take on a mysterious escort mission-escorting the \"most wanted fugitive\" to Chang'an.",
+      "isFamilyFriendly": true,
+      "name": "Blades of the Guardians",
+      "url": "https://www.themoviedb.org/movie/1305781",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.112,
+        "ratingCount": 58,
+        "worstRating": 0,
+        "reviewCount": 1
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "China"
+        }
+      ],
+      "duration": "PT2H6M",
+      "genre": [
+        "Action",
+        "Drama",
+        "History"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/AbunjMKX4P1sDNlKfhYrWkIoRD9.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-02-17"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "39254",
+    "title": "Real Steel",
+    "description": "Charlie Kenton is a washed-up fighter who retired from the ring when robots took over the sport. After his robot is trashed, he reluctantly teams up with his estranged son to rebuild and train an unlikely contender.",
+    "poster": "https://image.tmdb.org/t/p/w500/4GIeI5K5YdDUkR3mNQBoScpSFEf.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/pjlxrd646cBYznHoPBWTzz6FujX.jpg",
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Drama"
+    ],
+    "duration": "PT2H7M",
+    "release_date": "2011-09-28",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/39254-real-steel",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2010-06-16T17:54:41Z",
+      "dateModified": "2026-05-10T13:49:03Z",
+      "description": "Charlie Kenton is a washed-up fighter who retired from the ring when robots took over the sport. After his robot is trashed, he reluctantly teams up with his estranged son to rebuild and train an unlikely contender.",
+      "isFamilyFriendly": true,
+      "name": "Real Steel",
+      "url": "https://www.themoviedb.org/movie/39254-real-steel",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.107,
+        "ratingCount": 9222,
+        "worstRating": 0,
+        "reviewCount": 2
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT2H7M",
+      "genre": [
+        "Action",
+        "Science Fiction",
+        "Drama"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/4GIeI5K5YdDUkR3mNQBoScpSFEf.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2011-09-28"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1472951",
+    "title": "Infiltrate",
+    "description": "In a city overrun by crime, government Agent Lily Chen is forced to choose between her duty and her family when her husband is kidnapped, and she’s blackmailed into assassinating high-level criminals to save him. As she delves deeper into the criminal underworld, Lily’s relentless pursuit of justice unravels a web of corruption, leading to a final, life-altering decision that will change her world forever.",
+    "poster": "https://image.tmdb.org/t/p/w500/8Cw8GF9wG63kF8pRRXwOx2kXGt.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/cfDHxkco8RrslL0Vk2XPTwTVFCe.jpg",
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "duration": "PT1H33M",
+    "release_date": "2026-04-10",
+    "country": [
+      "Canada"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1472951-infiltrate",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2025-04-30T00:03:40Z",
+      "dateModified": "2026-05-28T07:10:06Z",
+      "description": "In a city overrun by crime, government Agent Lily Chen is forced to choose between her duty and her family when her husband is kidnapped, and she’s blackmailed into assassinating high-level criminals to save him. As she delves deeper into the criminal underworld, Lily’s relentless pursuit of justice unravels a web of corruption, leading to a final, life-altering decision that will change her world forever.",
+      "isFamilyFriendly": true,
+      "name": "Infiltrate",
+      "url": "https://www.themoviedb.org/movie/1472951-infiltrate",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 5.471,
+        "ratingCount": 17,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "Canada"
+        }
+      ],
+      "duration": "PT1H33M",
+      "genre": [
+        "Action",
+        "Thriller"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/8Cw8GF9wG63kF8pRRXwOx2kXGt.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-04-10"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1291608",
+    "title": "Dhurandhar",
+    "description": "A mysterious traveler slips into the heart of Karachi's underbelly and rises through its ranks with lethal precision, only to tear the notorious ISI-Underworld nexus apart from within.",
+    "poster": "https://image.tmdb.org/t/p/w500/snBOuXDdhmTvlzMUvP9Em3Pp1u1.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/4DfxcN4w0FuYZHQ3JAHzpHWia1U.jpg",
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "duration": "PT3H32M",
+    "release_date": "2025-12-05",
+    "country": [
+      "India"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1291608",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2024-05-17T05:51:06Z",
+      "dateModified": "2026-06-15T04:14:52Z",
+      "description": "A mysterious traveler slips into the heart of Karachi's underbelly and rises through its ranks with lethal precision, only to tear the notorious ISI-Underworld nexus apart from within.",
+      "isFamilyFriendly": true,
+      "name": "Dhurandhar",
+      "url": "https://www.themoviedb.org/movie/1291608",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.242,
+        "ratingCount": 306,
+        "worstRating": 0,
+        "reviewCount": 1
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "duration": "PT3H32M",
+      "genre": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/snBOuXDdhmTvlzMUvP9Em3Pp1u1.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2025-12-05"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "157336",
+    "title": "Interstellar",
+    "description": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+    "poster": "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/2ssWTSVklAEc98frZUQhgtGHx7s.jpg",
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Science Fiction"
+    ],
+    "duration": "PT2H49M",
+    "release_date": "2014-11-05",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/157336-interstellar",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2013-01-10T18:47:54Z",
+      "dateModified": "2026-06-14T12:39:20Z",
+      "description": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+      "isFamilyFriendly": true,
+      "name": "Interstellar",
+      "url": "https://www.themoviedb.org/movie/157336-interstellar",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 8.478,
+        "ratingCount": 40022,
+        "worstRating": 0,
+        "reviewCount": 20
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT2H49M",
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Science Fiction"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2014-11-05"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "226674",
+    "title": "The Adolescent",
+    "description": "In the summer of 1939, 13-year-old Marie goes with her parents to visit her grandparents in a small town near Avignon. Marie discovers her femininity and falls for a young Jewish doctor, but he prefers Eva, Marie's mother.",
+    "poster": "https://image.tmdb.org/t/p/w500/v7yCEzF9BCF82lbp42X5ZLjIieo.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/dqmeFUrf6Hs2ejcGGGfv69vtbbR.jpg",
+    "genres": [
+      "Drama"
+    ],
+    "duration": "PT1H30M",
+    "release_date": "1979-01-24",
+    "country": [
+      "France"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/226674-l-adolescente",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2013-10-09T02:32:16Z",
+      "dateModified": "2025-11-05T04:19:57Z",
+      "description": "In the summer of 1939, 13-year-old Marie goes with her parents to visit her grandparents in a small town near Avignon. Marie discovers her femininity and falls for a young Jewish doctor, but he prefers Eva, Marie's mother.",
+      "isFamilyFriendly": true,
+      "name": "The Adolescent",
+      "url": "https://www.themoviedb.org/movie/226674-l-adolescente",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 4.5,
+        "ratingCount": 15,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "France"
+        }
+      ],
+      "duration": "PT1H30M",
+      "genre": [
+        "Drama"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/v7yCEzF9BCF82lbp42X5ZLjIieo.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "1979-01-24"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1613798",
+    "title": "Vengeance",
+    "description": "The brutal murder of the wife of “Toro,” a military hero in the special forces, turns him into a man with a single purpose: revenge. After a stroke of fate makes him a millionaire, Carlos transforms his fortune into an arsenal and, together with his closest soldiers, sets out to hunt down those responsible.",
+    "poster": "https://image.tmdb.org/t/p/w500/ygWXPL0RS91JyJPNOfK34eV3bRE.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/xyW8rJO3rwG2EGcTO6eaUEa8b9d.jpg",
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "duration": "PT1H43M",
+    "release_date": "2026-02-26",
+    "country": [
+      "Spain"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1613798-venganza",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2026-01-11T04:28:49Z",
+      "dateModified": "2026-06-15T22:20:53Z",
+      "description": "The brutal murder of the wife of “Toro,” a military hero in the special forces, turns him into a man with a single purpose: revenge. After a stroke of fate makes him a millionaire, Carlos transforms his fortune into an arsenal and, together with his closest soldiers, sets out to hunt down those responsible.",
+      "isFamilyFriendly": true,
+      "name": "Vengeance",
+      "url": "https://www.themoviedb.org/movie/1613798-venganza",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.498,
+        "ratingCount": 256,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "Spain"
+        }
+      ],
+      "duration": "PT1H43M",
+      "genre": [
+        "Action",
+        "Thriller"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/ygWXPL0RS91JyJPNOfK34eV3bRE.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-02-26"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "460465",
+    "title": "Mortal Kombat",
+    "description": "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+    "poster": "https://image.tmdb.org/t/p/w500/ybrX94xQm8lXYpZAPRmwD9iIbWP.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/6ELCZlTA5lGUops70hKdB83WJxH.jpg",
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Adventure"
+    ],
+    "duration": "PT1H50M",
+    "release_date": "2021-04-07",
+    "country": [
+      "Australia",
+      "Canada",
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/460465-mortal-kombat",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2017-06-04T21:01:45Z",
+      "dateModified": "2026-06-16T16:27:02Z",
+      "description": "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+      "isFamilyFriendly": true,
+      "name": "Mortal Kombat",
+      "url": "https://www.themoviedb.org/movie/460465-mortal-kombat",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.047,
+        "ratingCount": 6782,
+        "worstRating": 0,
+        "reviewCount": 12
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "Australia"
+        },
+        {
+          "@type": "Country",
+          "name": "Canada"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H50M",
+      "genre": [
+        "Action",
+        "Fantasy",
+        "Adventure"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/ybrX94xQm8lXYpZAPRmwD9iIbWP.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2021-04-07"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "744275",
+    "title": "After We Fell",
+    "description": "Just as Tessa's life begins to become unglued, nothing is what she thought it would be. Not her friends nor her family. The only person that she should be able to rely on is Hardin, who is furious when he discovers the massive secret that she's been keeping. Before Tessa makes the biggest decision of her life, everything changes because of revelations about her family.",
+    "poster": "https://image.tmdb.org/t/p/w500/dU4HfnTEJDf9KvxGS9hgO7BVeju.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/mxdiaM2tsx8M6W3zLgiPwAkhQfq.jpg",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "duration": "PT1H39M",
+    "release_date": "2021-09-01",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/744275-after-we-fell",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2020-09-18T10:13:59Z",
+      "dateModified": "2026-06-12T19:37:01Z",
+      "description": "Just as Tessa's life begins to become unglued, nothing is what she thought it would be. Not her friends nor her family. The only person that she should be able to rely on is Hardin, who is furious when he discovers the massive secret that she's been keeping. Before Tessa makes the biggest decision of her life, everything changes because of revelations about her family.",
+      "isFamilyFriendly": true,
+      "name": "After We Fell",
+      "url": "https://www.themoviedb.org/movie/744275-after-we-fell",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.003,
+        "ratingCount": 2746,
+        "worstRating": 0,
+        "reviewCount": 3
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H39M",
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/dU4HfnTEJDf9KvxGS9hgO7BVeju.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2021-09-01"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1220522",
+    "title": "Dacoit",
+    "description": "Betrayed by his better half, a man is convicted for a crime he didn't commit. Once free, he hunts her down in pursuit of vengeance, as their stories intertwine with a series of robberies.",
+    "poster": "https://image.tmdb.org/t/p/w500/lbrnJY7E0a9xxgj2cotNp6YI4dz.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/q8Qlpmp2my1IZV9EVebzvhhJPmy.jpg",
+    "genres": [
+      "Action",
+      "Romance",
+      "Thriller"
+    ],
+    "duration": "PT2H30M",
+    "release_date": "2026-04-10",
+    "country": [
+      "India"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1220522",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2023-12-20T12:30:31Z",
+      "dateModified": "2026-05-11T08:33:37Z",
+      "description": "Betrayed by his better half, a man is convicted for a crime he didn't commit. Once free, he hunts her down in pursuit of vengeance, as their stories intertwine with a series of robberies.",
+      "isFamilyFriendly": true,
+      "name": "Dacoit",
+      "url": "https://www.themoviedb.org/movie/1220522",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 6.6,
+        "ratingCount": 5,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "duration": "PT2H30M",
+      "genre": [
+        "Action",
+        "Romance",
+        "Thriller"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/lbrnJY7E0a9xxgj2cotNp6YI4dz.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-04-10"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "840464",
+    "title": "Greenland 2: Migration",
+    "description": "Having found the safety of the Greenland bunker after the comet Clarke decimated the Earth, the Garrity family must now risk everything to embark on a perilous journey across the wasteland of Europe to find a new home.",
+    "poster": "https://image.tmdb.org/t/p/w500/z2tqCJLsw6uEJ8nJV8BsQXGa3dr.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/cLFbDVfhllIMybpo2fkGNzehiQG.jpg",
+    "genres": [
+      "Adventure",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "duration": "PT1H38M",
+    "release_date": "2026-01-07",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/840464-greenland-2-migration",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2021-06-14T19:40:57Z",
+      "dateModified": "2026-06-01T21:52:42Z",
+      "description": "Having found the safety of the Greenland bunker after the comet Clarke decimated the Earth, the Garrity family must now risk everything to embark on a perilous journey across the wasteland of Europe to find a new home.",
+      "isFamilyFriendly": true,
+      "name": "Greenland 2: Migration",
+      "url": "https://www.themoviedb.org/movie/840464-greenland-2-migration",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 6.443,
+        "ratingCount": 1212,
+        "worstRating": 0,
+        "reviewCount": 3
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H38M",
+      "genre": [
+        "Adventure",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/z2tqCJLsw6uEJ8nJV8BsQXGa3dr.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-01-07"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "235271",
+    "title": "Addicted",
+    "description": "A gallerist risks her family and flourishing career when she enters into an affair with a talented painter and slowly loses control of her life.",
+    "poster": "https://image.tmdb.org/t/p/w500/fAERrD6vvmznDoL99wlgjhSfPcH.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/aqqoDJs8vYp2EZ74aQ1UMY0sjM7.jpg",
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "duration": "PT1H45M",
+    "release_date": "2014-10-10",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/235271-addicted",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2013-11-11T22:24:37Z",
+      "dateModified": "2025-09-30T01:30:03Z",
+      "description": "A gallerist risks her family and flourishing career when she enters into an affair with a talented painter and slowly loses control of her life.",
+      "isFamilyFriendly": true,
+      "name": "Addicted",
+      "url": "https://www.themoviedb.org/movie/235271-addicted",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 5.91,
+        "ratingCount": 449,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H45M",
+      "genre": [
+        "Drama",
+        "Thriller"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/fAERrD6vvmznDoL99wlgjhSfPcH.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2014-10-10"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "424711",
+    "title": "Poppea's Hot Nights",
+    "description": "Poppea's Hot Nights (Italian: Le calde notti di Poppea) is a 1969 Italian comedy film set in Ancient Rome. It was written and directed by Guido Malatesta and stars Olga Schoberová (credited as Olinka Berova) and Brad Harris in the main roles.",
+    "poster": "https://image.tmdb.org/t/p/w500/zNfqugt7ZPFpWeXAQsF5IqDCDft.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/kI7JBjvZkqYsLJRhcqTQU1MMdQA.jpg",
+    "genres": [
+      "Comedy"
+    ],
+    "duration": "PT1H34M",
+    "release_date": "1969-01-01",
+    "country": [
+      "Italy"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/424711-le-calde-notti-di-poppea",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2016-11-06T15:15:30Z",
+      "dateModified": "2026-06-09T23:41:58Z",
+      "description": "Poppea's Hot Nights (Italian: Le calde notti di Poppea) is a 1969 Italian comedy film set in Ancient Rome. It was written and directed by Guido Malatesta and stars Olga Schoberová (credited as Olinka Berova) and Brad Harris in the main roles.",
+      "isFamilyFriendly": true,
+      "name": "Poppea's Hot Nights",
+      "url": "https://www.themoviedb.org/movie/424711-le-calde-notti-di-poppea",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 4.7,
+        "ratingCount": 5,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "Italy"
+        }
+      ],
+      "duration": "PT1H34M",
+      "genre": [
+        "Comedy"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/zNfqugt7ZPFpWeXAQsF5IqDCDft.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "1969-01-01"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "980477",
+    "title": "Ne Zha 2",
+    "description": "After a catastrophic event leaves their bodies destroyed, Ne Zha and Ao Bing are granted a fragile second chance at life. As tensions rise between the dragon clans and celestial forces, the two must undergo a series of perilous trials that will test their bond, challenge their identities, and decide the fate of both mortals and immortals.",
+    "poster": "https://image.tmdb.org/t/p/w500/cb5NyNrqiCNNoDkA8FfxHAtypdG.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/zxi6WQPVc0uQAG5TtLsKvxYHApC.jpg",
+    "genres": [
+      "Animation",
+      "Action",
+      "Fantasy",
+      "Adventure"
+    ],
+    "duration": "PT2H24M",
+    "release_date": "2025-01-29",
+    "country": [
+      "China"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/980477",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2022-05-26T23:41:14Z",
+      "dateModified": "2026-05-28T02:09:04Z",
+      "description": "After a catastrophic event leaves their bodies destroyed, Ne Zha and Ao Bing are granted a fragile second chance at life. As tensions rise between the dragon clans and celestial forces, the two must undergo a series of perilous trials that will test their bond, challenge their identities, and decide the fate of both mortals and immortals.",
+      "isFamilyFriendly": true,
+      "name": "Ne Zha 2",
+      "url": "https://www.themoviedb.org/movie/980477",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 8.15,
+        "ratingCount": 715,
+        "worstRating": 0,
+        "reviewCount": 3
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "China"
+        }
+      ],
+      "duration": "PT2H24M",
+      "genre": [
+        "Animation",
+        "Action",
+        "Fantasy",
+        "Adventure"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/cb5NyNrqiCNNoDkA8FfxHAtypdG.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2025-01-29"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "4258",
+    "title": "Scary Movie 5",
+    "description": "Home with their newly-formed family, happy parents Dan and Jody are haunted by sinister, paranormal activities. Determined to expel the insidious force, they install security cameras and discover their family is being stalked by an evil dead demon.",
+    "poster": "https://image.tmdb.org/t/p/w500/vBqLLxE6GaAPhO6v9EFvFbLZ7Ap.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/2eW8VlLXjUq4OKk8SYf5KTr91Kv.jpg",
+    "genres": [
+      "Comedy"
+    ],
+    "duration": "PT1H28M",
+    "release_date": "2013-04-11",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/4258-scary-movie-5",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2010-04-16T17:26:20Z",
+      "dateModified": "2026-06-05T03:12:07Z",
+      "description": "Home with their newly-formed family, happy parents Dan and Jody are haunted by sinister, paranormal activities. Determined to expel the insidious force, they install security cameras and discover their family is being stalked by an evil dead demon.",
+      "isFamilyFriendly": true,
+      "name": "Scary Movie 5",
+      "url": "https://www.themoviedb.org/movie/4258-scary-movie-5",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 4.796,
+        "ratingCount": 3056,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H28M",
+      "genre": [
+        "Comedy"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/vBqLLxE6GaAPhO6v9EFvFbLZ7Ap.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2013-04-11"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1159559",
+    "title": "Scream 7",
+    "description": "When a new Ghostface killer emerges in the quiet town where Sidney Prescott has built a new life, her darkest fears are realized as her daughter becomes the next target. Determined to protect her family, Sidney must face the horrors of her past to put an end to the bloodshed once and for all.",
+    "poster": "https://image.tmdb.org/t/p/w500/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/t9J2HXaDuJR7bvIG9XF7mttn4VY.jpg",
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Crime"
+    ],
+    "duration": "PT1H54M",
+    "release_date": "2026-02-25",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1159559-scream-7",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2023-08-02T18:07:25Z",
+      "dateModified": "2026-06-07T03:26:22Z",
+      "description": "When a new Ghostface killer emerges in the quiet town where Sidney Prescott has built a new life, her darkest fears are realized as her daughter becomes the next target. Determined to protect her family, Sidney must face the horrors of her past to put an end to the bloodshed once and for all.",
+      "isFamilyFriendly": true,
+      "name": "Scream 7",
+      "url": "https://www.themoviedb.org/movie/1159559-scream-7",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 6.177,
+        "ratingCount": 1038,
+        "worstRating": 0,
+        "reviewCount": 6
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H54M",
+      "genre": [
+        "Horror",
+        "Mystery",
+        "Crime"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-02-25"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1242898",
+    "title": "Predator: Badlands",
+    "description": "Cast out from his clan, a young Predator finds an unlikely ally in a damaged android and embarks on a treacherous journey in search of the ultimate adversary.",
+    "poster": "https://image.tmdb.org/t/p/w500/pHpq9yNUIo6aDoCXEBzjSolywgz.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/82lM4GJ9uuNvNDOEpxFy77uv4Ak.jpg",
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "duration": "PT1H47M",
+    "release_date": "2025-11-05",
+    "country": [
+      "United States"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1242898-predator-badlands",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2024-02-09T18:01:29Z",
+      "dateModified": "2026-06-16T02:42:06Z",
+      "description": "Cast out from his clan, a young Predator finds an unlikely ally in a damaged android and embarks on a treacherous journey in search of the ultimate adversary.",
+      "isFamilyFriendly": true,
+      "name": "Predator: Badlands",
+      "url": "https://www.themoviedb.org/movie/1242898-predator-badlands",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 7.789,
+        "ratingCount": 3098,
+        "worstRating": 0,
+        "reviewCount": 11
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "duration": "PT1H47M",
+      "genre": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/pHpq9yNUIo6aDoCXEBzjSolywgz.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2025-11-05"
+        }
+      ]
+    }
+  },
+  {
+    "tmdb_id": "1364953",
+    "title": "Mārama",
+    "description": "1859. When a young Māori woman is summoned from New Zealand to North Yorkshire, she uncovers her horrific colonial heritage and is compelled to confront and destroy the titled Englishman who devastated her family.",
+    "poster": "https://image.tmdb.org/t/p/w500/tD9yi1i2t6cgXDrqaBRzjUy7bEX.jpg",
+    "backdrop": "https://media.themoviedb.org/t/p/w780/c4w0cHapoKndfq4fXnDoUyW90Xd.jpg",
+    "genres": [
+      "Horror",
+      "Drama",
+      "Mystery"
+    ],
+    "duration": "PT1H29M",
+    "release_date": "2026-04-17",
+    "country": [
+      "New Zealand",
+      "United Kingdom"
+    ],
+    "imdb_id": "",
+    "url": "https://www.themoviedb.org/movie/1364953-marama",
+    "json_ld": {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "dateCreated": "2024-10-02T05:03:31Z",
+      "dateModified": "2026-06-15T11:58:33Z",
+      "description": "1859. When a young Māori woman is summoned from New Zealand to North Yorkshire, she uncovers her horrific colonial heritage and is compelled to confront and destroy the titled Englishman who devastated her family.",
+      "isFamilyFriendly": true,
+      "name": "Mārama",
+      "url": "https://www.themoviedb.org/movie/1364953-marama",
+      "aggregateRating": {
+        "@type": "aggregateRating",
+        "bestRating": 10,
+        "ratingValue": 6.4,
+        "ratingCount": 9,
+        "worstRating": 0
+      },
+      "countryOfOrigin": [
+        {
+          "@type": "Country",
+          "name": "New Zealand"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        }
+      ],
+      "duration": "PT1H29M",
+      "genre": [
+        "Horror",
+        "Drama",
+        "Mystery"
+      ],
+      "image": "https://image.tmdb.org/t/p/w500/tD9yi1i2t6cgXDrqaBRzjUy7bEX.jpg",
+      "releasedEvent": [
+        {
+          "@type": "PublicationEvent",
+          "startDate": "2026-04-17"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,332 @@
+[
+  {
+    "id": 11012,
+    "title": "Damage",
+    "overview": "The life of a respected British politician at the height of his career crumbles when he becomes obsessed with his son's lover.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/alf3JOPP7EYP0iO24gwe5YfRnqo.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/krhj4Fhb0G3QCmyBtEADxgFFmRX.jpg",
+    "release_date": "2010-04-16",
+    "vote_average": 6.6,
+    "vote_count": 689,
+    "genre_ids": [
+      "Drama",
+      "Romance"
+    ],
+    "runtime": 111,
+    "imdb_id": ""
+  },
+  {
+    "id": 28322,
+    "title": "Madness",
+    "overview": "An escaped convicted murderer invades the cottage of a man, his wife and the wife's sister, whereupon he proceeds to torment this already dysfunctional trio with rape and violence.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/gV0J0Fqw2mYMtQbzb0ruxv9MAeZ.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/7TJjD2X9GTEqyLVIJKLS85J2V47.jpg",
+    "release_date": "2010-04-16",
+    "vote_average": 4.969,
+    "vote_count": 32,
+    "genre_ids": [
+      "Thriller",
+      "Action",
+      "Crime"
+    ],
+    "runtime": 89,
+    "imdb_id": ""
+  },
+  {
+    "id": 454639,
+    "title": "Masters of the Universe",
+    "overview": "After being separated for 15 years, the Sword of Power leads Prince Adam back to Eternia, where he discovers his home shattered under the fiendish rule of Skeletor. To save his family and his world, Adam must join forces with his closest allies, Teela and Duncan/Man-At-Arms, and embrace his true destiny as He-Man — the most powerful man in the universe.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/3YMd9Ogae4rDKLWuAZFuse9xhc5.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/piV2OnzTZCyGBP9JCjlHIgKGlfo.jpg",
+    "release_date": "2017-04-27",
+    "vote_average": 7.301,
+    "vote_count": 221,
+    "genre_ids": [
+      "Action",
+      "Fantasy",
+      "Science Fiction"
+    ],
+    "runtime": 141,
+    "imdb_id": ""
+  },
+  {
+    "id": 912378,
+    "title": "Dridam",
+    "overview": "A police officer arrives at a seemingly peaceful station but faces pressure when human remains are discovered. Given only a week to solve the murder, he must navigate demands from his department and an anxious public seeking swift justice.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/fXSdAujfiRRW6LqekN4FvFQidh3.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/jPr9Id0f3knF82ETEBGPpMhXj4M.jpg",
+    "release_date": "2021-12-06",
+    "vote_average": 7.0,
+    "vote_count": 1,
+    "genre_ids": [
+      "Crime",
+      "Thriller"
+    ],
+    "runtime": 127,
+    "imdb_id": ""
+  },
+  {
+    "id": 931285,
+    "title": "Mortal Kombat II",
+    "overview": "The fan favorite champions—now joined by Johnny Cage himself—are pitted against one another in the ultimate, no-holds barred, gory battle to defeat the dark rule of Shao Kahn that threatens the very existence of the Earthrealm and its defenders.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/hwRdDFIhaEmpRgoki805YvyyjZf.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/laR2dpcNpbv83jdlRUNAYPPjH90.jpg",
+    "release_date": "2022-01-26",
+    "vote_average": 8.023,
+    "vote_count": 1380,
+    "genre_ids": [
+      "Action",
+      "Fantasy",
+      "Adventure"
+    ],
+    "runtime": 116,
+    "imdb_id": ""
+  },
+  {
+    "id": 936075,
+    "title": "Michael",
+    "overview": "The story of Michael Jackson, one of the most influential artists the world has ever known, and his life beyond the music. His journey from the discovery of his extraordinary talent as the lead of the Jackson Five, to the visionary artist whose creative ambition fueled a relentless pursuit to become the biggest entertainer in the world, highlighting both his life off-stage and some of the most iconic performances from his early solo career.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/ufSwlnECLoUbBjPrFqEQcWBzHwc.jpg",
+    "release_date": "2022-02-07",
+    "vote_average": 8.644,
+    "vote_count": 2479,
+    "genre_ids": [
+      "Music",
+      "Drama"
+    ],
+    "runtime": 128,
+    "imdb_id": ""
+  },
+  {
+    "id": 1007757,
+    "title": "Swapped",
+    "overview": "A small woodland creature and a majestic bird, two natural sworn enemies of the Valley, magically trade places and set off on an adventure of a lifetime to switch back. Their journey soon uncovers a greater threat—one that could endanger not only their species, but the entire valley they call home.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/tHhxWxge06goXU6ZQH1hj7vK8Hd.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/zMwhWailP1WY7sb6AoE6b8ugoy.jpg",
+    "release_date": "2022-08-02",
+    "vote_average": 8.964,
+    "vote_count": 1692,
+    "genre_ids": [
+      "Adventure",
+      "Animation",
+      "Family",
+      "Fantasy"
+    ],
+    "runtime": 102,
+    "imdb_id": ""
+  },
+  {
+    "id": 1057265,
+    "title": "Peddi",
+    "overview": "In 1980s rural Andhra Pradesh, a spirited villager unites his community through sports to defend their pride against a powerful rival.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/kJAJNNBYlbqAcpTDxBNnaILSMTy.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/oPsRr7AfNLw6XaPuMpvkWK0bIUA.jpg",
+    "release_date": "2022-12-04",
+    "vote_average": 6.72,
+    "vote_count": 41,
+    "genre_ids": [
+      "Action",
+      "Drama"
+    ],
+    "runtime": 192,
+    "imdb_id": ""
+  },
+  {
+    "id": 1103473,
+    "title": "KD – The Devil",
+    "overview": "In the early 1970s, a petty criminal Kaali unwittingly involves himself with underworld thugs, catalyzing events beyond his control.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/nEuEMJrnLBneE9tJlmzbhCFLu95.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/l1nekhf05HS5OpBr0vRqcD3NxoS.jpg",
+    "release_date": "2023-03-22",
+    "vote_average": 7.5,
+    "vote_count": 2,
+    "genre_ids": [
+      "History",
+      "Crime",
+      "Action",
+      "Fantasy"
+    ],
+    "runtime": 141,
+    "imdb_id": ""
+  },
+  {
+    "id": 1226293,
+    "title": "Salitan",
+    "overview": "A suspicious wife follows her husband in Bali. She meets a dashing man who captures her heart. She soon wants her husband to really have an affair to alleviate the guilt she is feeling.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/rMgG7cWuq9O6zhhLs2CbqIKVA8V.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/emK2hOB6ACiExT0lNLog9lAmMFL.jpg",
+    "release_date": "2024-01-04",
+    "vote_average": 4.714,
+    "vote_count": 7,
+    "genre_ids": [
+      "Drama",
+      "Romance"
+    ],
+    "runtime": 105,
+    "imdb_id": ""
+  },
+  {
+    "id": 1226863,
+    "title": "The Super Mario Galaxy Movie",
+    "overview": "Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir's crusade.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/eJGWx219ZcEMVQJhAgMiqo8tYY.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/9Z2uDYXqJrlmePznQQJhL6d92Rq.jpg",
+    "release_date": "2024-01-05",
+    "vote_average": 8.18,
+    "vote_count": 2617,
+    "genre_ids": [
+      "Family",
+      "Comedy",
+      "Adventure",
+      "Fantasy",
+      "Animation"
+    ],
+    "runtime": 98,
+    "imdb_id": ""
+  },
+  {
+    "id": 1228710,
+    "title": "The Mandalorian and Grogu",
+    "overview": "The evil Empire has fallen, and Imperial warlords remain scattered throughout the galaxy. As the fledgling New Republic works to protect everything the Rebellion fought for, they have enlisted the help of legendary Mandalorian bounty hunter Din Djarin and his young apprentice Grogu.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/5Vi8dSauVwH1HOsiZceDMbRr1Ca.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/6zg7A9ICOthNR2TSXlT51KvXrsA.jpg",
+    "release_date": "2024-01-09",
+    "vote_average": 6.8,
+    "vote_count": 473,
+    "genre_ids": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ],
+    "runtime": 132,
+    "imdb_id": ""
+  },
+  {
+    "id": 1239134,
+    "title": "Bhooth Bangla",
+    "overview": "A man inherits a palace in rural Mangalpur and plans his sister's wedding there, but strange supernatural events and panicked locals force him to investigate the property's mysterious past.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/79RBp8afL4u4z3nVGR78z6eIvBB.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/A2tzVTVtnTvpji96IZmleN78KKv.jpg",
+    "release_date": "2024-02-01",
+    "vote_average": 5.6,
+    "vote_count": 17,
+    "genre_ids": [
+      "Horror",
+      "Comedy"
+    ],
+    "runtime": 163,
+    "imdb_id": ""
+  },
+  {
+    "id": 1275779,
+    "title": "Disclosure Day",
+    "overview": "If you found out we weren’t alone, if someone showed you, proved it to you, would that frighten you?",
+    "poster_path": "https://image.tmdb.org/t/p/w500/3o5YPjDGDTcTDL5ftDA9NwN9dLd.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/s6ly8laenkHWlIBRkLSfIuEMLC6.jpg",
+    "release_date": "2024-04-17",
+    "vote_average": 6.8,
+    "vote_count": 427,
+    "genre_ids": [
+      "Action",
+      "Science Fiction",
+      "Thriller"
+    ],
+    "runtime": 145,
+    "imdb_id": ""
+  },
+  {
+    "id": 1293550,
+    "title": "Bandar",
+    "overview": "TV star Samar's life spirals when his ex Gayatri accuses him of rape after he blocks contact with her. Despite his new relationship with Khushi, he faces arrest and encounters a corrupt justice system.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/3TrQUHmnEL2tOYf4KKkXb01BQt2.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/xS8tsJ8IvNkzBMu3kq3gZFReh7j.jpg",
+    "release_date": "2024-05-21",
+    "vote_average": 7.0,
+    "vote_count": 1,
+    "genre_ids": [
+      "Thriller"
+    ],
+    "runtime": 140,
+    "imdb_id": ""
+  },
+  {
+    "id": 1304313,
+    "title": "Lee Cronin's The Mummy",
+    "overview": "The young daughter of a journalist disappears into the desert without a trace—eight years later, the broken family is shocked when she is returned to them, as what should be a joyful reunion turns into a living nightmare.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/1q308iixueCU4pFtSYugNOevtNx.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/xugEpZk9YQ0DIz1aFvH5HGkqpZK.jpg",
+    "release_date": "2024-06-13",
+    "vote_average": 8.05,
+    "vote_count": 1843,
+    "genre_ids": [
+      "Horror",
+      "Mystery"
+    ],
+    "runtime": 133,
+    "imdb_id": ""
+  },
+  {
+    "id": 1308553,
+    "title": "Hai Jawani Toh Ishq Hona Hai",
+    "overview": "When Jass leaves his marriage over conflicting priorities, a new romance abroad is upended by shocking revelations, forcing him to confront love, loyalty, and the true meaning of commitment.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/vmlJvz6qVzYgei2V74GvnmcuQfW.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/l5QgEvlfK6eHPM4YPEk7AArXmh8.jpg",
+    "release_date": "2024-06-24",
+    "vote_average": 5.471,
+    "vote_count": 17,
+    "genre_ids": [
+      "Romance",
+      "Comedy"
+    ],
+    "runtime": 136,
+    "imdb_id": ""
+  },
+  {
+    "id": 1339713,
+    "title": "Obsession",
+    "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/5lTZyuBTNOfawsfPT8Q0cIg6qAF.jpg",
+    "release_date": "2024-08-27",
+    "vote_average": 7.915,
+    "vote_count": 798,
+    "genre_ids": [
+      "Horror"
+    ],
+    "runtime": 108,
+    "imdb_id": ""
+  },
+  {
+    "id": 1367220,
+    "title": "Karuppu",
+    "overview": "In a world where justice falters, guardian deity Vettai Karuppu takes the guise of a lawyer to battle a corrupt legal system preying on the powerless.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/4KZXlZ5tTT6ghbW77gS4hSLkCd7.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/1eAuwNBy34kkM3xkl202z4f1NiI.jpg",
+    "release_date": "2024-10-06",
+    "vote_average": 7.2,
+    "vote_count": 16,
+    "genre_ids": [
+      "Action",
+      "Fantasy"
+    ],
+    "runtime": 152,
+    "imdb_id": ""
+  },
+  {
+    "id": 1523145,
+    "title": "Your Heart Will Be Broken",
+    "overview": "High school student Polina is saved from bullying at her new school and makes a deal with the main bully Bars: he must pretend to be her boyfriend and protect her, and she must do everything he says. During this game, the couple develops real feelings, but her family and classmates have reasons to separate the lovers.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/7wIBfBl2gejt6xHxNSK0reVIm7E.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/1x9e0qWonw634NhIsRdvnneeqvN.jpg",
+    "release_date": "2025-07-31",
+    "vote_average": 6.978,
+    "vote_count": 91,
+    "genre_ids": [
+      "Romance",
+      "Drama"
+    ],
+    "runtime": 134,
+    "imdb_id": ""
+  }
+]

@@ -1,0 +1,986 @@
+[
+  {
+    "id": 1280738,
+    "title": "The Furious",
+    "overview": "After Wang Wei's daughter is kidnapped by a criminal network and he receives no help from the corrupt police, Wei sets out to find her himself. His only ally is Navin, a relentless journalist whose wife has mysteriously disappeared. Fueled by a furious vengeance, the unlikely duo ruthlessly battle the kidnappers in this explosive martial arts showdown.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/zP19YO60jwEsfKd5Qf1UvA5uJu8.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/ew3EqF9VLTxmK64OsHT7p7lr4wT.jpg",
+    "vote_average": 8,
+    "vote_count": 34,
+    "genres": [
+      "Action",
+      "Crime"
+    ],
+    "runtime": 113,
+    "release_date": "2026-06-10",
+    "year": 2026
+  },
+  {
+    "id": 687163,
+    "title": "Project Hail Mary",
+    "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/8Tfys3mDZVp4tNoH2ktm06a0Tau.jpg",
+    "vote_average": 8.684,
+    "vote_count": 5117,
+    "genres": [
+      "Science Fiction",
+      "Adventure"
+    ],
+    "runtime": 157,
+    "release_date": "2026-03-15",
+    "year": 2026
+  },
+  {
+    "id": 1439930,
+    "title": "The Punisher: One Last Kill",
+    "overview": "As Frank Castle searches for meaning beyond revenge, an unexpected force pulls him back into the fight.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/qQclTgLMDvGBuUBFGHRipxkEwWR.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/qO55CD8tgVL1T4WKn6zYFFiD6lL.jpg",
+    "vote_average": 8.351,
+    "vote_count": 1612,
+    "genres": [
+      "Action",
+      "Drama",
+      "Crime"
+    ],
+    "runtime": null,
+    "release_date": "2026-05-12",
+    "year": 2026
+  },
+  {
+    "id": 1122573,
+    "title": "In the Grey",
+    "overview": "A covert team of elite operatives are living in the shadows. When a ruthless despot steals a billion-dollar fortune, they're sent to take it back—an impossible heist that erupts into a deadly game of strategy, deception and survival.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/dQgIcW6Th08kMRf2HBoYWoFE6OD.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/qcIKxhqGMIj8uujsSoSMZWr8QqU.jpg",
+    "vote_average": 6.6,
+    "vote_count": 234,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "runtime": 97,
+    "release_date": "2026-05-13",
+    "year": 2026
+  },
+  {
+    "id": 1358005,
+    "title": "Office Romance",
+    "overview": "Jackie, President and CEO of Air Cruz, runs a tight ship in her business, including a rigid anti-fraternization policy for all her employees. When a new sexy lawyer begins working for her, that policy becomes very tested.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/1HRUTqEVDmJC4L6tp6zd85MI6uH.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/1N5yz1IDw6Ci8le1YgeM6xtBijA.jpg",
+    "vote_average": 6.5,
+    "vote_count": 202,
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "runtime": 115,
+    "release_date": "2026-06-04",
+    "year": 2026
+  },
+  {
+    "id": 1604143,
+    "title": "나는 신혼 너는 재혼",
+    "overview": null,
+    "poster_path": "https://image.tmdb.org/t/p/w500/wTFF1SFTDYL7M1yWjY0K8Ga5pZS.jpg",
+    "backdrop_path": null,
+    "vote_average": null,
+    "vote_count": null,
+    "genres": [
+      "Drama"
+    ],
+    "runtime": null,
+    "release_date": "2021-08-12",
+    "year": 2021
+  },
+  {
+    "id": 1582770,
+    "title": "Dhurandhar: The Revenge",
+    "overview": "As rival gangs, corrupt officials and a ruthless Major Iqbal close in, Hamza's mission for his country spirals into a bloody personal war where the line between patriot and monster disappears in the streets of Lyari.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/ptTwQES14pr5c3aZvJg56YlYgb1.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/gRoZG3Z0zJxgElmTsVHOl2dNYXe.jpg",
+    "vote_average": 7.3,
+    "vote_count": 118,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "runtime": 229,
+    "release_date": "2026-03-18",
+    "year": 2026
+  },
+  {
+    "id": 1380291,
+    "title": "Tom Clancy's Jack Ryan: Ghost War",
+    "overview": "Jack Ryan is reluctantly pulled back into espionage when an international covert mission unravels a deadly conspiracy. Racing against time, he joins CIA allies Mike November & James Greer and sharp MI6 officer Emma Marlowe to battle a rogue black-ops unit in a high-stakes, deeply personal fight.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/8ehYxUh5MWE41AeE9gkHE8DKzvB.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/dd31qJxOarrHyGZwYsCzOjobQzP.jpg",
+    "vote_average": 7.085,
+    "vote_count": 567,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "runtime": 107,
+    "release_date": "2026-05-20",
+    "year": 2026
+  },
+  {
+    "id": 976912,
+    "title": "Graphic Desires",
+    "overview": "When reclusive Franklin cheats on his partner with a mysterious girl he meets on a dating app, it becomes the start of a deadly obsession.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/3BjLdTWRiHc1ISIZMFvToOmghOM.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/rHnANzYUmV3WZw3n0yWOLiR3pen.jpg",
+    "vote_average": 6.935,
+    "vote_count": 92,
+    "genres": [
+      "Thriller",
+      "Crime"
+    ],
+    "runtime": 90,
+    "release_date": "2023-08-31",
+    "year": 2023
+  },
+  {
+    "id": 1084244,
+    "title": "Toy Story 5",
+    "overview": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become exponentially harder when they have to go head to head with the all-new threat to playtime.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/pxG26JdyuiDvJbSoucknaFiLeZD.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/coyHrYHD2xHhDoYD6o4uwoJ2o7b.jpg",
+    "vote_average": 7.6,
+    "vote_count": 17,
+    "genres": [
+      "Animation",
+      "Family",
+      "Comedy",
+      "Adventure"
+    ],
+    "runtime": 102,
+    "release_date": "2026-06-17",
+    "year": 2026
+  },
+  {
+    "id": 1419406,
+    "title": "The Shadow's Edge",
+    "overview": "Macau Police brings the tracking expert police officer out of retirement to help catch a dangerous group of professional thieves.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/cHKo3m8N1fwvEy2ZEr0xGmmMODV.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/4BtL2vvEufDXDP4u6xQjjQ1Y2aT.jpg",
+    "vote_average": 7.768,
+    "vote_count": 859,
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "runtime": 142,
+    "release_date": "2025-08-16",
+    "year": 2025
+  },
+  {
+    "id": 1628448,
+    "title": "Maa Behen",
+    "overview": "In this dark comedy, a woman calls her estranged daughters in the middle of the night with chilling news — there's a dead body in her kitchen.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/dpQIeEunpgj0C4rngb6OFb4zSd1.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/aV5YOTVTnO2wYcN2AlNbdgnBYpb.jpg",
+    "vote_average": 6.7,
+    "vote_count": 9,
+    "genres": [
+      "Comedy",
+      "Thriller",
+      "Drama"
+    ],
+    "runtime": 127,
+    "release_date": "2026-06-04",
+    "year": 2026
+  },
+  {
+    "id": 270473,
+    "title": "Love Sick",
+    "overview": "Gob, a product designer who always manages to find something crap to present to his boss and really wants someone who can listen to his problems when he feels down. All he got, however, is Gab, a reckless dancer friend who only likes to talk about herself and order him to do this and that.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/qJGVLxMO11CmLLSxtEO055limUr.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/48dwB4axAbZUOlIz5dCJ9Li1T7W.jpg",
+    "vote_average": 5.5,
+    "vote_count": 2,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "runtime": 101,
+    "release_date": "2013-12-25",
+    "year": 2013
+  },
+  {
+    "id": 1083381,
+    "title": "Backrooms",
+    "overview": "A strange doorway appears in the basement of a furniture showroom.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/mCpwRayjXMFzKHbjbzc5JRKfq1O.jpg",
+    "vote_average": 6.9,
+    "vote_count": 556,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Science Fiction"
+    ],
+    "runtime": 111,
+    "release_date": "2026-05-27",
+    "year": 2026
+  },
+  {
+    "id": 1327819,
+    "title": "Hoppers",
+    "overview": "Scientists have discovered how to 'hop' human consciousness into lifelike robotic animals, allowing people to communicate with animals as animals. Animal lover Mabel seizes an opportunity to use the technology, uncovering mysteries within the animal world beyond anything she could have imagined.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/xjtWQ2CL1mpmMNwuU5HeS4Iuwuu.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/u53UYu5XG2hNgWGvs3xGhAVzypl.jpg",
+    "vote_average": 8.18,
+    "vote_count": 1606,
+    "genres": [
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Family",
+      "Science Fiction"
+    ],
+    "runtime": 104,
+    "release_date": "2026-03-04",
+    "year": 2026
+  },
+  {
+    "id": 83533,
+    "title": "Avatar: Fire and Ash",
+    "overview": "In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri face a new threat on Pandora: the Ash People, a violent and power-hungry Na'vi tribe led by the ruthless Varang. Jake's family must fight for their survival and the future of Pandora in a conflict that pushes them to their emotional and physical limits.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/bRBeSHfGHwkEpImlhxPmOcUsaeg.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/u8DU5fkLoM5tTRukzPC31oGPxaQ.jpg",
+    "vote_average": 7.587,
+    "vote_count": 3463,
+    "genres": [
+      "Science Fiction",
+      "Adventure",
+      "Fantasy"
+    ],
+    "runtime": 198,
+    "release_date": "2025-12-17",
+    "year": 2025
+  },
+  {
+    "id": 1536233,
+    "title": "The Summoning of Baby Blue",
+    "overview": "A babysitting gig becomes a nightmare of urban legend when three teens summon Baby Blue. Survival depends on uncovering the past to escape a mother’s wrath from beyond the grave.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/fDyjVv5ryBYDiE1sN9mbBbZycBL.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/efIhQiHcgAvHyq8nwSlfJNPpoaH.jpg",
+    "vote_average": 5,
+    "vote_count": 6,
+    "genres": [
+      "Horror"
+    ],
+    "runtime": 76,
+    "release_date": "2025-10-15",
+    "year": 2025
+  },
+  {
+    "id": 1288341,
+    "title": "Seven Snipers",
+    "overview": "When a former elite sniper is hunted down by the ruthless warlord who once held her captive, she must fight to the death to protect the daughter she has raised in hiding, on a remote Australian farm.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/xIZ8huVdXCL7OMtsjd3XvmFP5sK.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/g2aOpyCO1vEyUZURh3V5uaHu187.jpg",
+    "vote_average": 5.7,
+    "vote_count": 33,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "runtime": 87,
+    "release_date": "2026-04-30",
+    "year": 2026
+  },
+  {
+    "id": 204407,
+    "title": "Bosco d'amore",
+    "overview": "The time is the mid-14th century --- the Pope is now residing at Avignon, the Black Death is killing millions across Europe, and civil wars are adding to the turmoil and chaos. In this story adapted from Giovanni Boccaccio's Decameron, a young teenage couple is sent to live in a nearby town by the man's uncle, in an attempt to keep them safe from harm. She is from the lower classes, and he comes from a noble family -- a family that opposes his choice of a future bride. While en route to the town, the couple's horses are stolen and they are forced to continue through the forest on foot -- at a pace that introduces them to a kaleidoscope of Boccaccio's characters, from masters of mysticism, to soldiers of the warring Papal armies. Somehow, the couple manage to get through this gauntlet of sorts, and they do marry. Just as they are ready to go back to Rome, they hear that there is an insurrection in the offing, and suddenly, their brief spate of stability is threatened again.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/jNV46xSIONTEvIAWon6NnveH7eG.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/fjcX01h7VNUhhNjhFBthH7sTp2z.jpg",
+    "vote_average": 4.667,
+    "vote_count": 6,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "runtime": 113,
+    "release_date": "1981-09-08",
+    "year": 1981
+  },
+  {
+    "id": 1694978,
+    "title": "Chum",
+    "overview": "A newlywed couple joins friends on a Mediterranean yacht excursion, only to find themselves caught between a predatory shark and a psychopathic killer in their midst-transforming a sun-drenched escape into a fight for survival.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/uJOW6pWxJ0i5sji9VXRR6Y1wXyE.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/6kheApG5qPsKbiKDxsGpOb6i6i6.jpg",
+    "vote_average": 5.1,
+    "vote_count": 11,
+    "genres": [
+      "Horror"
+    ],
+    "runtime": 87,
+    "release_date": "2026-05-27",
+    "year": 2026
+  },
+  {
+    "id": 1430077,
+    "title": "Hokum",
+    "overview": "When novelist Ohm Bauman retreats to a remote inn to scatter his parents' ashes, he is consumed by tales of a witch haunting the honeymoon suite. Disturbing visions and a shocking disappearance forces him to confront dark corners of his past.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/jKPWwsbAM6HKURPYQ1eG8DmKMKn.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/woZX9wZaiX70LbW7bOeNccNTIhp.jpg",
+    "vote_average": 6.7,
+    "vote_count": 233,
+    "genres": [
+      "Horror"
+    ],
+    "runtime": 108,
+    "release_date": "2026-04-29",
+    "year": 2026
+  },
+  {
+    "id": 1390300,
+    "title": "Over Your Dead Body",
+    "overview": "A dysfunctional couple head to a remote cabin to ",
+    "poster_path": "https://image.tmdb.org/t/p/w500/kZCauMzAt9eMAhLMopCqnFw1Q5k.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/sb76azrAXr9U13uEQxNP5e3fujY.jpg",
+    "vote_average": 6.552,
+    "vote_count": 241,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Thriller"
+    ],
+    "runtime": 105,
+    "release_date": "2026-03-14",
+    "year": 2026
+  },
+  {
+    "id": 1311031,
+    "title": "Demon Slayer: Kimetsu no Yaiba Infinity Castle",
+    "overview": "The Demon Slayer Corps are drawn into the Infinity Castle, where Tanjiro, Nezuko, and the Hashira face terrifying Upper Rank demons in a desperate fight as the final battle against Muzan Kibutsuji begins.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/1RgPyOhN4DRs225BGTlHJqCudII.jpg",
+    "vote_average": 7.724,
+    "vote_count": 863,
+    "genres": [
+      "Animation",
+      "Action",
+      "Fantasy"
+    ],
+    "runtime": 156,
+    "release_date": "2025-07-18",
+    "year": 2025
+  },
+  {
+    "id": 1241752,
+    "title": "Rita",
+    "overview": "Rita, who finds herself alone when husband Ariel works abroad. They both find solace and sexual satisfaction in other people. When Ariel comes back, they both act like nothing happened. But will this keep their marriage from falling apart?",
+    "poster_path": "https://image.tmdb.org/t/p/w500/pXENxAzOBrTSDJGxDcUnlNTNmWr.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/5AsIFZ2AJC7JcGpq40aRPuRuaRc.jpg",
+    "vote_average": 5.979,
+    "vote_count": 24,
+    "genres": [
+      "Drama"
+    ],
+    "runtime": 113,
+    "release_date": "2024-03-22",
+    "year": 2024
+  },
+  {
+    "id": 1092936,
+    "title": "The Holy Boy",
+    "overview": "A PE teacher moves to a isolated mountain village where the people appear to live in unshakeable serenity, but soon stumbles across a disturbing ritual. Once a week, the locals are freed of their pain by a lonely boy born with the power to heal one's soul just by hugging them. Trying to rescue him from this madness, the man unleashes his dark side.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/2jpKQ6xhcxaNXOUDeQpyHNUcWr1.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/wgtTXGLL6a4y1gNwgsdQajs6Kqq.jpg",
+    "vote_average": 6.963,
+    "vote_count": 136,
+    "genres": [
+      "Horror",
+      "Thriller",
+      "Drama"
+    ],
+    "runtime": 122,
+    "release_date": "2025-09-17",
+    "year": 2025
+  },
+  {
+    "id": 1290821,
+    "title": "Shelter",
+    "overview": "A man living in self-imposed exile on a remote island rescues a young girl from a violent storm, setting off a chain of events that forces him out of seclusion to protect her from enemies tied to his past.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/buPFnHZ3xQy6vZEHxbHgL1Pc6CR.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/nHxWyy18SvAZ8jJeemtS8k1UNjM.jpg",
+    "vote_average": 7.663,
+    "vote_count": 1241,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "runtime": 107,
+    "release_date": "2026-01-28",
+    "year": 2026
+  },
+  {
+    "id": 1560681,
+    "title": "Colors of Evil: Black",
+    "overview": "Investigating the disappearance of children in a remote Polish town, prosecutor Leopold Bilski must unravel a sinister local legend before it's too late.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/reeKdj7BSznr7wSGzAtIMrPFgKo.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/2D3W3Jp0VYsLhXTEfnvhbMvQEzk.jpg",
+    "vote_average": 6.598,
+    "vote_count": 51,
+    "genres": [
+      "Thriller",
+      "Mystery",
+      "Crime"
+    ],
+    "runtime": 110,
+    "release_date": "2026-06-10",
+    "year": 2026
+  },
+  {
+    "id": 1486860,
+    "title": "Haunted 3D: Echoes of the Past",
+    "overview": "A man seeks refuge in a remote Indian mountain mansion, fleeing his past. He discovers the house harbors sinister secrets, pain, and terror ready to torment him.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/tSmAFNckiqcKg7aFgjCFnhNqNbP.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/a6VXgWVWjSvUq0UsCPSgUQko4CQ.jpg",
+    "vote_average": null,
+    "vote_count": null,
+    "genres": [
+      "Horror"
+    ],
+    "runtime": null,
+    "release_date": "2026-06-12",
+    "year": 2026
+  },
+  {
+    "id": 1273221,
+    "title": "Scary Movie",
+    "overview": "Twenty-six years after outrunning a suspiciously familiar masked killer, the Core Four are back in the killer's crosshairs and no horror movie IP is safe.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/reZ8NInXjMkkaOpUHcI3Pn7iaRN.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/lj6AaDqDUbzm2XJltFNHeAm2uXN.jpg",
+    "vote_average": 5.5,
+    "vote_count": 292,
+    "genres": [
+      "Comedy",
+      "Horror"
+    ],
+    "runtime": 96,
+    "release_date": "2026-06-03",
+    "year": 2026
+  },
+  {
+    "id": 12104,
+    "title": "Pink Floyd: The Wall",
+    "overview": "A troubled rock star descends into madness in the midst of his physical and social isolation from everyone.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/aElHyIdF5jmctFGhlhhaPFsbBJC.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/Ag4eANWzHEwC7rQVyvcGsL34ieP.jpg",
+    "vote_average": 7.929,
+    "vote_count": 1651,
+    "genres": [
+      "Music",
+      "Drama"
+    ],
+    "runtime": 95,
+    "release_date": "1982-07-14",
+    "year": 1982
+  },
+  {
+    "id": 1285366,
+    "title": "Shape of My Heart",
+    "overview": "A romance about a man and a woman who, due to an unexpected event, end up switching bodies. Despite coming from completely different backgrounds and environments, the two try to overcome the various difficulties that arise from their body swap.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/3r0O6BW9USoZ9mteCVyNKMQriRL.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/yjK3ardrgdS8suZG8KMU82Q7U38.jpg",
+    "vote_average": 5,
+    "vote_count": 3,
+    "genres": [
+      "Romance"
+    ],
+    "runtime": 91,
+    "release_date": "2024-07-06",
+    "year": 2024
+  },
+  {
+    "id": 1433117,
+    "title": "Kara",
+    "overview": "A thief tries to go straight, but when predatory banks trap his father in debt, he returns to crime — with a determined cop closing in on his trail.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/uIrFdMWlJFdc1jPBP9bxeaISCDj.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/e5IdZ1OEWMYxTeu51tI67gXvfpn.jpg",
+    "vote_average": 6.1,
+    "vote_count": 22,
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "runtime": 161,
+    "release_date": "2026-04-30",
+    "year": 2026
+  },
+  {
+    "id": 4247,
+    "title": "Scary Movie",
+    "overview": "A familiar-looking group of teenagers find themselves being stalked by a more-than-vaguely recognizable masked killer! As the victims begin to pile up and the laughs pile on, none of your favorite scary movies escape the razor-sharp satire of this outrageously funny parody!",
+    "poster_path": "https://image.tmdb.org/t/p/w500/fVQFPRuw3yWXojYDJvA5EoFjUOY.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/m5dA4JZsj78EBTa2D6imWOAebwB.jpg",
+    "vote_average": 6.414,
+    "vote_count": 7855,
+    "genres": [
+      "Comedy"
+    ],
+    "runtime": 88,
+    "release_date": "2000-07-07",
+    "year": 2000
+  },
+  {
+    "id": 1522126,
+    "title": "1000 Men and Me: The Bonnie Blue Story",
+    "overview": "Adult content creator Bonnie Blue announced that she’d slept with 1057 men in 12 hours. Exploring the polarising debate around Bonnie and the pornification of our society, the film follows her over the most eye-opening six months of her life.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/5dcgoyf8nt6Xt4VSR6Nrn6nwhuz.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/62a8bMDftwD9aU0dkXr4eN6Q5q2.jpg",
+    "vote_average": 5.575,
+    "vote_count": 20,
+    "genres": [
+      "Documentary",
+      "TV Movie"
+    ],
+    "runtime": null,
+    "release_date": "2025-07-29",
+    "year": 2025
+  },
+  {
+    "id": 278,
+    "title": "The Shawshank Redemption",
+    "overview": "Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/zfbjgQE1uSd9wiPTX4VzsLi0rGG.jpg",
+    "vote_average": 8.722,
+    "vote_count": 30569,
+    "genres": [
+      "Drama",
+      "Crime"
+    ],
+    "runtime": 142,
+    "release_date": "1994-09-23",
+    "year": 1994
+  },
+  {
+    "id": 1363387,
+    "title": "Saccharine",
+    "overview": "After succumbing to an obscure weight-loss craze involving the eating of human ashes, lovelorn medical student Hana finds herself haunted by the ghost of the person she's eating.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/wTlqMc4Jt8ZBtHh8CREblU3ajAB.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/7NUx7bQAD4lo9yMDbprvIblhWo2.jpg",
+    "vote_average": 6.31,
+    "vote_count": 21,
+    "genres": [
+      "Horror"
+    ],
+    "runtime": 113,
+    "release_date": "2026-05-22",
+    "year": 2026
+  },
+  {
+    "id": 1318447,
+    "title": "Apex",
+    "overview": "A grieving woman pushing her limits on a solo adventure in the Australian wild is ensnared in a twisted game with a cunning killer who thinks she's prey.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/eTp7gSPkSF3Aw79mNx1NkBP1PZT.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/9nzfyiYbmTUXWC4B2kwjl4NAlqO.jpg",
+    "vote_average": 6.814,
+    "vote_count": 1471,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "runtime": 96,
+    "release_date": "2026-04-24",
+    "year": 2026
+  },
+  {
+    "id": 1431068,
+    "title": "Main Vaapas Aaunga",
+    "overview": "An elderly man remains haunted by a childhood romance and memories of love lost during the 1947 Partition of India. As he shares his story with his grandson, the past unfolds through memories of migration, longing, and a love that endures across generations.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/8n7OeeyAqwmGS81Is2c6Ho65tgW.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/bWw9PuPH6vFXlezBoHZ6D9XBhQW.jpg",
+    "vote_average": 6,
+    "vote_count": 1,
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "runtime": 166,
+    "release_date": "2026-06-10",
+    "year": 2026
+  },
+  {
+    "id": 1297842,
+    "title": "GOAT",
+    "overview": "A small goat with big dreams gets a once-in-a-lifetime shot to join the pros and play roarball, a high-intensity, co-ed, full-contact sport dominated by the fastest, fiercest animals in the world.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/wfuqMlaExcoYiUEvKfVpUTt1v4u.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/tq3h43fZy0H80vzf47MAY7R9Mxo.jpg",
+    "vote_average": 8.14,
+    "vote_count": 799,
+    "genres": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ],
+    "runtime": 100,
+    "release_date": "2026-02-11",
+    "year": 2026
+  },
+  {
+    "id": 1084242,
+    "title": "Zootopia 2",
+    "overview": "After cracking the biggest case in Zootopia's history, rookie cops Judy Hopps and Nick Wilde find themselves on the twisting trail of a great mystery when Gary De'Snake arrives and turns the animal metropolis upside down. To crack the case, Judy and Nick must go undercover to unexpected new parts of town, where their growing partnership is tested like never before.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/oJ7g2CifqpStmoYQyaLQgEU32qO.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/lgotja3xMoJZbynwHfcQcJAEMWH.jpg",
+    "vote_average": 7.666,
+    "vote_count": 2949,
+    "genres": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Mystery",
+      "Family"
+    ],
+    "runtime": 108,
+    "release_date": "2025-11-26",
+    "year": 2025
+  },
+  {
+    "id": 980431,
+    "title": "Avatar Aang: The Last Airbender",
+    "overview": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/29Jdsak3SrwGds5k1t43kH6Khed.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/sS3zGYFPcfM5pArVNWl6qLyaSmU.jpg",
+    "vote_average": null,
+    "vote_count": null,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Fantasy"
+    ],
+    "runtime": 99,
+    "release_date": "2026-10-09",
+    "year": 2026
+  },
+  {
+    "id": 350,
+    "title": "The Devil Wears Prada",
+    "overview": "A young woman from the Midwest gets more than she bargained for when she moves to New York to become a writer and ends up as the assistant to the tyrannical, larger-than-life editor-in-chief of a major fashion magazine.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/8912AsVuS7Sj915apArUFbv6F9L.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/gkh6Nt8DtY1XT4gQsyFq9XAVJlJ.jpg",
+    "vote_average": 7.434,
+    "vote_count": 13730,
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "runtime": 109,
+    "release_date": "2006-06-29",
+    "year": 2006
+  },
+  {
+    "id": 1305781,
+    "title": "Blades of the Guardians",
+    "overview": "Dao Ma, the ",
+    "poster_path": "https://image.tmdb.org/t/p/w500/AbunjMKX4P1sDNlKfhYrWkIoRD9.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/cYyNJzwhaj7aC4uTlUctrfaERbf.jpg",
+    "vote_average": 7.112,
+    "vote_count": 58,
+    "genres": [
+      "Action",
+      "Drama",
+      "History"
+    ],
+    "runtime": 126,
+    "release_date": "2026-02-17",
+    "year": 2026
+  },
+  {
+    "id": 39254,
+    "title": "Real Steel",
+    "overview": "Charlie Kenton is a washed-up fighter who retired from the ring when robots took over the sport. After his robot is trashed, he reluctantly teams up with his estranged son to rebuild and train an unlikely contender.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/4GIeI5K5YdDUkR3mNQBoScpSFEf.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/pjlxrd646cBYznHoPBWTzz6FujX.jpg",
+    "vote_average": 7.107,
+    "vote_count": 9222,
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Drama"
+    ],
+    "runtime": 127,
+    "release_date": "2011-09-28",
+    "year": 2011
+  },
+  {
+    "id": 1472951,
+    "title": "Infiltrate",
+    "overview": "In a city overrun by crime, government Agent Lily Chen is forced to choose between her duty and her family when her husband is kidnapped, and she’s blackmailed into assassinating high-level criminals to save him. As she delves deeper into the criminal underworld, Lily’s relentless pursuit of justice unravels a web of corruption, leading to a final, life-altering decision that will change her world forever.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/8Cw8GF9wG63kF8pRRXwOx2kXGt.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/cfDHxkco8RrslL0Vk2XPTwTVFCe.jpg",
+    "vote_average": 5.471,
+    "vote_count": 17,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "runtime": 93,
+    "release_date": "2026-04-10",
+    "year": 2026
+  },
+  {
+    "id": 1291608,
+    "title": "Dhurandhar",
+    "overview": "A mysterious traveler slips into the heart of Karachi's underbelly and rises through its ranks with lethal precision, only to tear the notorious ISI-Underworld nexus apart from within.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/snBOuXDdhmTvlzMUvP9Em3Pp1u1.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/4DfxcN4w0FuYZHQ3JAHzpHWia1U.jpg",
+    "vote_average": 7.242,
+    "vote_count": 306,
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "runtime": 212,
+    "release_date": "2025-12-05",
+    "year": 2025
+  },
+  {
+    "id": 157336,
+    "title": "Interstellar",
+    "overview": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/yQvGrMoipbRoddT0ZR8tPoR7NfX.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/2ssWTSVklAEc98frZUQhgtGHx7s.jpg",
+    "vote_average": 8.478,
+    "vote_count": 40022,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Science Fiction"
+    ],
+    "runtime": 169,
+    "release_date": "2014-11-05",
+    "year": 2014
+  },
+  {
+    "id": 226674,
+    "title": "The Adolescent",
+    "overview": "In the summer of 1939, 13-year-old Marie goes with her parents to visit her grandparents in a small town near Avignon. Marie discovers her femininity and falls for a young Jewish doctor, but he prefers Eva, Marie's mother.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/v7yCEzF9BCF82lbp42X5ZLjIieo.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/dqmeFUrf6Hs2ejcGGGfv69vtbbR.jpg",
+    "vote_average": 4.5,
+    "vote_count": 15,
+    "genres": [
+      "Drama"
+    ],
+    "runtime": 90,
+    "release_date": "1979-01-24",
+    "year": 1979
+  },
+  {
+    "id": 1613798,
+    "title": "Vengeance",
+    "overview": "The brutal murder of the wife of “Toro,” a military hero in the special forces, turns him into a man with a single purpose: revenge. After a stroke of fate makes him a millionaire, Carlos transforms his fortune into an arsenal and, together with his closest soldiers, sets out to hunt down those responsible.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/ygWXPL0RS91JyJPNOfK34eV3bRE.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/xyW8rJO3rwG2EGcTO6eaUEa8b9d.jpg",
+    "vote_average": 7.498,
+    "vote_count": 256,
+    "genres": [
+      "Action",
+      "Thriller"
+    ],
+    "runtime": 103,
+    "release_date": "2026-02-26",
+    "year": 2026
+  },
+  {
+    "id": 460465,
+    "title": "Mortal Kombat",
+    "overview": "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/ybrX94xQm8lXYpZAPRmwD9iIbWP.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/6ELCZlTA5lGUops70hKdB83WJxH.jpg",
+    "vote_average": 7.047,
+    "vote_count": 6781,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Adventure"
+    ],
+    "runtime": 110,
+    "release_date": "2021-04-07",
+    "year": 2021
+  },
+  {
+    "id": 744275,
+    "title": "After We Fell",
+    "overview": "Just as Tessa's life begins to become unglued, nothing is what she thought it would be. Not her friends nor her family. The only person that she should be able to rely on is Hardin, who is furious when he discovers the massive secret that she's been keeping. Before Tessa makes the biggest decision of her life, everything changes because of revelations about her family.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/dU4HfnTEJDf9KvxGS9hgO7BVeju.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/mxdiaM2tsx8M6W3zLgiPwAkhQfq.jpg",
+    "vote_average": 7.003,
+    "vote_count": 2746,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "runtime": 99,
+    "release_date": "2021-09-01",
+    "year": 2021
+  },
+  {
+    "id": 1220522,
+    "title": "Dacoit",
+    "overview": "Betrayed by his better half, a man is convicted for a crime he didn't commit. Once free, he hunts her down in pursuit of vengeance, as their stories intertwine with a series of robberies.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/lbrnJY7E0a9xxgj2cotNp6YI4dz.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/q8Qlpmp2my1IZV9EVebzvhhJPmy.jpg",
+    "vote_average": 6.6,
+    "vote_count": 5,
+    "genres": [
+      "Action",
+      "Romance",
+      "Thriller"
+    ],
+    "runtime": 150,
+    "release_date": "2026-04-10",
+    "year": 2026
+  },
+  {
+    "id": 840464,
+    "title": "Greenland 2: Migration",
+    "overview": "Having found the safety of the Greenland bunker after the comet Clarke decimated the Earth, the Garrity family must now risk everything to embark on a perilous journey across the wasteland of Europe to find a new home.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/z2tqCJLsw6uEJ8nJV8BsQXGa3dr.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/cLFbDVfhllIMybpo2fkGNzehiQG.jpg",
+    "vote_average": 6.443,
+    "vote_count": 1212,
+    "genres": [
+      "Adventure",
+      "Thriller",
+      "Science Fiction"
+    ],
+    "runtime": 98,
+    "release_date": "2026-01-07",
+    "year": 2026
+  },
+  {
+    "id": 235271,
+    "title": "Addicted",
+    "overview": "A gallerist risks her family and flourishing career when she enters into an affair with a talented painter and slowly loses control of her life.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/fAERrD6vvmznDoL99wlgjhSfPcH.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/aqqoDJs8vYp2EZ74aQ1UMY0sjM7.jpg",
+    "vote_average": 5.91,
+    "vote_count": 449,
+    "genres": [
+      "Drama",
+      "Thriller"
+    ],
+    "runtime": 105,
+    "release_date": "2014-10-10",
+    "year": 2014
+  },
+  {
+    "id": 424711,
+    "title": "Poppea's Hot Nights",
+    "overview": "Poppea's Hot Nights (Italian: Le calde notti di Poppea) is a 1969 Italian comedy film set in Ancient Rome. It was written and directed by Guido Malatesta and stars Olga Schoberová (credited as Olinka Berova) and Brad Harris in the main roles.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/zNfqugt7ZPFpWeXAQsF5IqDCDft.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/kI7JBjvZkqYsLJRhcqTQU1MMdQA.jpg",
+    "vote_average": 4.7,
+    "vote_count": 5,
+    "genres": [
+      "Comedy"
+    ],
+    "runtime": 94,
+    "release_date": "1969-01-01",
+    "year": 1969
+  },
+  {
+    "id": 980477,
+    "title": "Ne Zha 2",
+    "overview": "After a catastrophic event leaves their bodies destroyed, Ne Zha and Ao Bing are granted a fragile second chance at life. As tensions rise between the dragon clans and celestial forces, the two must undergo a series of perilous trials that will test their bond, challenge their identities, and decide the fate of both mortals and immortals.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/cb5NyNrqiCNNoDkA8FfxHAtypdG.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/zxi6WQPVc0uQAG5TtLsKvxYHApC.jpg",
+    "vote_average": 8.15,
+    "vote_count": 715,
+    "genres": [
+      "Animation",
+      "Action",
+      "Fantasy",
+      "Adventure"
+    ],
+    "runtime": 144,
+    "release_date": "2025-01-29",
+    "year": 2025
+  },
+  {
+    "id": 4258,
+    "title": "Scary Movie 5",
+    "overview": "Home with their newly-formed family, happy parents Dan and Jody are haunted by sinister, paranormal activities. Determined to expel the insidious force, they install security cameras and discover their family is being stalked by an evil dead demon.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/vBqLLxE6GaAPhO6v9EFvFbLZ7Ap.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/2eW8VlLXjUq4OKk8SYf5KTr91Kv.jpg",
+    "vote_average": 4.796,
+    "vote_count": 3056,
+    "genres": [
+      "Comedy"
+    ],
+    "runtime": 88,
+    "release_date": "2013-04-11",
+    "year": 2013
+  },
+  {
+    "id": 1159559,
+    "title": "Scream 7",
+    "overview": "When a new Ghostface killer emerges in the quiet town where Sidney Prescott has built a new life, her darkest fears are realized as her daughter becomes the next target. Determined to protect her family, Sidney must face the horrors of her past to put an end to the bloodshed once and for all.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/t9J2HXaDuJR7bvIG9XF7mttn4VY.jpg",
+    "vote_average": 6.177,
+    "vote_count": 1038,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Crime"
+    ],
+    "runtime": 114,
+    "release_date": "2026-02-25",
+    "year": 2026
+  },
+  {
+    "id": 1242898,
+    "title": "Predator: Badlands",
+    "overview": "Cast out from his clan, a young Predator finds an unlikely ally in a damaged android and embarks on a treacherous journey in search of the ultimate adversary.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/pHpq9yNUIo6aDoCXEBzjSolywgz.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/82lM4GJ9uuNvNDOEpxFy77uv4Ak.jpg",
+    "vote_average": 7.789,
+    "vote_count": 3098,
+    "genres": [
+      "Action",
+      "Science Fiction",
+      "Adventure"
+    ],
+    "runtime": 107,
+    "release_date": "2025-11-05",
+    "year": 2025
+  },
+  {
+    "id": 1364953,
+    "title": "Mārama",
+    "overview": "1859. When a young Māori woman is summoned from New Zealand to North Yorkshire, she uncovers her horrific colonial heritage and is compelled to confront and destroy the titled Englishman who devastated her family.",
+    "poster_path": "https://image.tmdb.org/t/p/w500/tD9yi1i2t6cgXDrqaBRzjUy7bEX.jpg",
+    "backdrop_path": "https://media.themoviedb.org/t/p/w533_and_h300_face/c4w0cHapoKndfq4fXnDoUyW90Xd.jpg",
+    "vote_average": 6.4,
+    "vote_count": 9,
+    "genres": [
+      "Horror",
+      "Drama",
+      "Mystery"
+    ],
+    "runtime": 89,
+    "release_date": "2026-04-17",
+    "year": 2026
+  }
+]

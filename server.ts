@@ -4,17 +4,28 @@ import { createServer as createViteServer } from "vite";
 import config from "./zosite.json";
 import { Hono } from "hono";
 
-// AI agents: read README.md for navigation and contribution guidance.
 type Mode = "development" | "production";
 const app = new Hono();
+const mode: Mode = process.env.NODE_ENV === "production" ? "production" : "development";
 
-const mode: Mode =
-  process.env.NODE_ENV === "production" ? "production" : "development";
+// === Movie type ===
+interface Movie {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date: string;
+  vote_average: number;
+  vote_count: number;
+  genres: string[];
+  runtime: number;
+  tagline: string;
+}
 
-// --- TMDB Web Scraper (no API key needed) ---
-const TMDb_BASE = "https://www.themoviedb.org";
+// === In-memory cache ===
 const cache = new Map<string, { data: unknown; ts: number }>();
-const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+const CACHE_TTL = 60 * 60 * 1000;
 
 function cached(key: string) {
   const entry = cache.get(key);
@@ -26,182 +37,187 @@ function setCache(key: string, data: unknown) {
   cache.set(key, { data, ts: Date.now() });
 }
 
-interface Movie {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string | null;
-  backdrop_path: string | null;
-  release_date: string;
-  vote_average: number;
-  vote_count: number;
-  genres: { id: number; name: string }[];
-  runtime: number;
-  tagline: string;
-  imdb_id: string | null;
+// === TMDB website scraper (no API key needed) ===
+const TMDb_BASE = "https://www.themoviedb.org";
+
+async function fetchHTML(url: string): Promise<string> {
+  const res = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9",
+      "Accept-Language": "id-ID,id;q=0.9,en;q=0.8",
+    },
+  });
+  if (!res.ok) throw new Error(`TMDB error: ${res.status}`);
+  return res.text();
 }
 
-// Scrape TMDB movie page HTML to extract data
-async function scrapeTMDBMovie(tmdbId: number): Promise<Movie | null> {
+// Scrape TMDB search results page
+async function scrapeTMDbSearch(query: string, page = 1): Promise<{ results: Movie[]; total_pages: number; total_results: number }> {
   try {
-    const res = await fetch(`${TMDb_BASE}/movie/${tmdbId}`, {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Accept-Language": "id-ID,id;q=0.9",
-      },
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
+    const url = `${TMDb_BASE}/search/movie?query=${encodeURIComponent(query)}&page=${page}`;
+    const html = await fetchHTML(url);
 
-    // Extract JSON-LD structured data
-    const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-    if (!ldMatch) return null;
+    // Extract movie cards: <a href="/movie/<id>-slug"><h2>Title</h2>...
+    const cardRegex = /<a\s+href="\/movie\/(\d+)[^"]*"[^>]*>[\s\S]*?<h2[^>]*>(.*?)<\/h2>/gi;
+    const results: Movie[] = [];
+    let match;
+    const seen = new Set<number>();
 
-    const ld = JSON.parse(ldMatch[1]);
+    while ((match = cardRegex.exec(html)) !== null) {
+      const id = parseInt(match[1]);
+      if (seen.has(id)) continue;
+      seen.add(id);
 
-    // Extract IMDb ID from the page
-    const imdbMatch = html.match(/tt\d+/);
-    const imdbId = imdbMatch ? imdbMatch[0] : null;
-
-    // Extract runtime
-    const runtimeMatch = html.match(/(\d+)h\s*(\d+)m/);
-    let runtime = 0;
-    if (runtimeMatch) {
-      runtime = parseInt(runtimeMatch[1]) * 60 + parseInt(runtimeMatch[2]);
+      const title = match[2].replace(/<[^>]+>/g, "").trim();
+      results.push({
+        id,
+        title,
+        overview: "",
+        poster_path: null,
+        backdrop_path: null,
+        release_date: "",
+        vote_average: 0,
+        vote_count: 0,
+        genres: [],
+        runtime: 0,
+        tagline: "",
+      });
     }
 
-    // Extract tagline
-    const taglineMatch = html.match(/<p class="tagline"[^>]*>([^<]+)</);
+    // Count total results from pagination
+    const totalMatch = html.match(/of\s+([\d,]+)\s+results/i);
+    const total = totalMatch ? parseInt(totalMatch[1].replace(/,/g, "")) : results.length;
+
+    return { results, total_pages: Math.ceil(total / 20), total_results: total };
+  } catch {
+    return { results: [], total_pages: 0, total_results: 0 };
+  }
+}
+
+// Scrape movie detail page
+async function scrapeMovieDetail(tmdbId: number): Promise<Movie | null> {
+  try {
+    const url = `${TMDb_BASE}/movie/${tmdbId}`;
+    const html = await fetchHTML(url);
+
+    // Extract JSON-LD structured data
+    const ldMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
+    if (!ldMatch) return null;
+
+    let ld: any = null;
+    for (const m of ldMatch) {
+      const json = m.replace(/<script\s+type="application\/ld\+json"[^>]*>/, "").replace(/<\/script>/, "");
+      try {
+        const data = JSON.parse(json);
+        if (data["@type"] === "Movie") { ld = data; break; }
+      } catch {}
+    }
+    if (!ld) return null;
+
+    // Extract poster & backdrop from page
+    const posterMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/w\d+\/([^"']+)/);
+    const backdropMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/original\/([^"']+)/);
+
+    // Genres
+    const genreMatches = html.matchAll(/<a\s+href="\/genre\/\d+[^"]*"[^>]*>([^<]+)<\/a>/gi);
+    const genres: string[] = [];
+    for (const gm of genreMatches) genres.push(gm[1].trim());
+
+    // Runtime & tagline
+    const runtimeMatch = html.match(/(\d+)h\s*(\d+)m/);
+    const runtime = runtimeMatch ? parseInt(runtimeMatch[1]) * 60 + parseInt(runtimeMatch[2]) : 0;
+    const taglineMatch = html.match(/<p[^>]*class="[^"]*tagline[^"]*"[^>]*>([^<]+)<\/p>/i);
     const tagline = taglineMatch ? taglineMatch[1].trim() : "";
 
-    // Extract genres
-    const genreMatches = html.matchAll(/<a href="\/genre\/\d+[^"]*">([^<]+)<\/a>/g);
-    const genres = Array.from(genreMatches).map((m, i) => ({
-      id: i + 1,
-      name: m[1],
-    }));
-
-    // Extract poster & backdrop from ld
-    const posterPath = ld.image ? ld.image.replace("https://image.tmdb.org/t/p/original", "") : null;
-    const backdropMatch = html.match(/https:\/\/image\.tmdb\.org\/t\/p\/original\/([^"']+)/);
-    const backdropPath = backdropMatch ? "/" + backdropMatch[1] : null;
+    // IMDb ID for vidsrc
+    const imdbMatch = html.match(/tt(\d{7,8})/);
 
     return {
       id: tmdbId,
       title: ld.name || "Unknown",
       overview: ld.description || "",
-      poster_path: posterPath,
-      backdrop_path: backdropPath,
+      poster_path: posterMatch ? "/" + posterMatch[1] : null,
+      backdrop_path: backdropMatch ? "/" + backdropMatch[1] : null,
       release_date: ld.datePublished || "",
       vote_average: ld.aggregateRating?.ratingValue || 0,
       vote_count: ld.aggregateRating?.ratingCount || 0,
       genres,
       runtime,
       tagline,
-      imdb_id: imdbId,
     };
   } catch {
     return null;
   }
 }
 
-// Scrape TMDB search results
-async function scrapeTMDbSearch(query: string, page = 1): Promise<{ results: Movie[]; total_pages: number; total_results: number }> {
+// Scrape popular/trending movies from homepage
+async function scrapePopularMovies(): Promise<Movie[]> {
   try {
-    const url = `${TMDb_BASE}/search?query=${encodeURIComponent(query)}&page=${page}`;
-    const res = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Accept-Language": "id-ID,id;q=0.9",
-      },
-    });
-    if (!res.ok) return { results: [], total_pages: 0, total_results: 0 };
-    const html = await res.text();
-
-    // Extract movie cards from search results
-    const cardRegex = /<a href="\/movie\/(\d+)[^"]*"[^>]*>[\s\S]*?<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"[\s\S]*?<span class="rating[^"]*"[^>]*>([\d.]+)/gi;
+    const html = await fetchHTML(`${TMDb_BASE}/movie`);
+    const cardRegex = /<a\s+href="\/movie\/(\d+)[^"]*"[^>]*>[\s\S]*?<h2[^>]*>(.*?)<\/h2>/gi;
     const results: Movie[] = [];
     let match;
+    const seen = new Set<number>();
+
     while ((match = cardRegex.exec(html)) !== null) {
       const id = parseInt(match[1]);
-      const posterUrl = match[2];
-      const title = match[3];
-      const rating = parseFloat(match[4]);
-
-      const posterPath = posterUrl.includes("image.tmdb.org")
-        ? posterUrl.replace(/https:\/\/image\.tmdb\.org\/t\/p\/w\d+/, "")
-        : null;
-
+      if (seen.has(id)) continue;
+      seen.add(id);
       results.push({
         id,
-        title,
-        overview: "",
-        poster_path: posterPath,
-        backdrop_path: null,
-        release_date: "",
-        vote_average: rating,
-        vote_count: 0,
-        genres: [],
-        runtime: 0,
-        tagline: "",
-        imdb_id: null,
+        title: match[2].replace(/<[^>]+>/g, "").trim(),
+        overview: "", poster_path: null, backdrop_path: null,
+        release_date: "", vote_average: 0, vote_count: 0,
+        genres: [], runtime: 0, tagline: "",
       });
+      if (results.length >= 60) break;
     }
-
-    // Extract total results count
-    const totalMatch = html.match(/<p[^>]*>(\d+)\s+results?<\/p>/i);
-    const total = totalMatch ? parseInt(totalMatch[1]) : results.length;
-
-    return {
-      results,
-      total_pages: Math.ceil(total / 20),
-      total_results: total,
-    };
+    return results;
   } catch {
-    return { results: [], total_pages: 0, total_results: 0 };
+    return [];
   }
 }
 
-// Load static fallback
-let staticMovies: Movie[] | null = null;
+// Load static movies as fallback
+let staticMoviesCache: Movie[] | null = null;
 async function getStaticMovies(): Promise<Movie[]> {
-  if (staticMovies) return staticMovies;
+  if (staticMoviesCache) return staticMoviesCache;
   try {
     const file = Bun.file("./static-movies.json");
     if (await file.exists()) {
-      staticMovies = JSON.parse(await file.text());
-      return staticMovies!;
+      staticMoviesCache = JSON.parse(await file.text());
+      return staticMoviesCache!;
     }
   } catch {}
-  staticMovies = [];
-  return staticMovies;
+  return [];
 }
 
-// Endpoints
+// === API Routes ===
+
+// Search - always scrapes TMDB live
 app.get("/api/movies/search", async (c) => {
   const query = c.req.query("query") || "";
-  if (!query || query.length < 2) return c.json({ results: [], total_results: 0, page: 1, total_pages: 0 });
+  if (query.length < 2) return c.json({ results: [], total_pages: 0, total_results: 0 });
 
-  const cacheKey = `search:${query}`;
+  const cacheKey = `search:${query}:1`;
   const hit = cached(cacheKey);
   if (hit) return c.json(hit);
 
-  // Try live scrape
-  const data = await scrapeTMDbSearch(query);
-  if (data.results.length > 0) {
+  try {
+    const data = await scrapeTMDbSearch(query);
     setCache(cacheKey, data);
     return c.json(data);
+  } catch {
+    // Fallback to static
+    const all = await getStaticMovies();
+    const ql = query.toLowerCase();
+    const filtered = all.filter(m => m.title.toLowerCase().includes(ql));
+    return c.json({ results: filtered.slice(0, 20), total_pages: 1, total_results: filtered.length });
   }
-
-  // Fallback to static
-  const staticMovies = await getStaticMovies();
-  const q = query.toLowerCase();
-  const results = staticMovies.filter(m => m.title.toLowerCase().includes(q));
-  const resp = { results: results.slice(0, 12), total_results: results.length, page: 1, total_pages: 1 };
-  setCache(cacheKey, resp);
-  return c.json(resp);
 });
 
+// Movie detail - scrapes TMDB live
 app.get("/api/movie/:id", async (c) => {
   const id = parseInt(c.req.param("id"));
   if (isNaN(id)) return c.json({ error: "Invalid ID" }, 400);
@@ -210,36 +226,44 @@ app.get("/api/movie/:id", async (c) => {
   const hit = cached(cacheKey);
   if (hit) return c.json(hit);
 
-  // Try live scrape
-  const movie = await scrapeTMDBMovie(id);
-  if (movie) {
-    setCache(cacheKey, movie);
-    return c.json(movie);
-  }
+  try {
+    const detail = await scrapeMovieDetail(id);
+    if (detail) {
+      setCache(cacheKey, detail);
+      return c.json(detail);
+    }
+  } catch {}
 
-  // Fallback to static
+  // Fallback
   const staticMovies = await getStaticMovies();
   const found = staticMovies.find(m => m.id === id);
-  if (found) {
-    setCache(cacheKey, found);
-    return c.json(found);
+  if (found) return c.json(found);
+
+  return c.json({ error: "Movie not found" }, 404);
+});
+
+// Browse / discover
+app.get("/api/movies/popular", async (c) => {
+  const hit = cached("popular");
+  if (hit) return c.json(hit);
+
+  try {
+    const movies = await scrapePopularMovies();
+    setCache("popular", movies);
+    return c.json(movies);
+  } catch {
+    const s = await getStaticMovies();
+    return c.json(s);
   }
-
-  return c.json({ error: "Not found" }, 404);
 });
 
-app.get("/api/movie/:id/videos", async (c) => {
-  // Return empty videos array - player uses vidsrc/2embed instead
-  return c.json({ results: [] });
-});
-
-// Static fallback - returns all cached movies
+// Static fallback (always available)
 app.get("/api/movies/static", async (c) => {
-  return c.json(await getStaticMovies());
+  const movies = await getStaticMovies();
+  return c.json(movies);
 });
 
-// --- end TMDB scraper ---
-
+// === Production / Development routing ===
 if (mode === "production") {
   configureProduction(app);
 } else {
@@ -271,15 +295,10 @@ function configureProduction(app: Hono) {
 }
 
 async function configureDevelopment(app: Hono): Promise<ViteDevServer> {
-  const vite = await createViteServer({
-    server: { middlewareMode: true, hmr: false, ws: false },
-    appType: "custom",
-  });
-
+  const vite = await createViteServer({ server: { middlewareMode: true, hmr: false, ws: false }, appType: "custom" });
   app.use("*", async (c, next) => {
     if (c.req.path.startsWith("/api/")) return next();
     if (c.req.path === "/favicon.ico") return c.redirect("/favicon.svg", 302);
-
     const url = c.req.path;
     try {
       if (url === "/" || url === "/index.html") {
@@ -287,23 +306,14 @@ async function configureDevelopment(app: Hono): Promise<ViteDevServer> {
         template = await vite.transformIndexHtml(url, template);
         return c.html(template, { headers: { "Cache-Control": "no-store, must-revalidate" } });
       }
-
       const publicFile = Bun.file(`./public${url}`);
       if (await publicFile.exists()) {
         const stat = await publicFile.stat();
-        if (stat && !stat.isDirectory()) {
-          return new Response(publicFile, { headers: { "Cache-Control": "no-store, must-revalidate" } });
-        }
+        if (stat && !stat.isDirectory()) return new Response(publicFile, { headers: { "Cache-Control": "no-store, must-revalidate" } });
       }
-
       let result;
       try { result = await vite.transformRequest(url); } catch { result = null; }
-      if (result) {
-        return new Response(result.code, {
-          headers: { "Content-Type": "application/javascript", "Cache-Control": "no-store, must-revalidate" },
-        });
-      }
-
+      if (result) return new Response(result.code, { headers: { "Content-Type": "application/javascript", "Cache-Control": "no-store, must-revalidate" } });
       let template = await Bun.file("./index.html").text();
       template = await vite.transformIndexHtml("/", template);
       return c.html(template, { headers: { "Cache-Control": "no-store, must-revalidate" } });
@@ -313,6 +323,5 @@ async function configureDevelopment(app: Hono): Promise<ViteDevServer> {
       return c.text("Internal Server Error", 500);
     }
   });
-
   return vite;
 }
