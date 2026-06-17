@@ -195,26 +195,54 @@ async function getStaticMovies(): Promise<Movie[]> {
 
 // === API Routes ===
 
-// Search - always scrapes TMDB live
+// Search - static first, fuzzy matching only
 app.get("/api/movies/search", async (c) => {
   const query = c.req.query("query") || "";
-  if (query.length < 2) return c.json({ results: [], total_pages: 0, total_results: 0 });
+  const normalizedQuery = query.trim().toLowerCase();
+  if (normalizedQuery.length < 2) {
+    return c.json({ results: [], total_pages: 0, total_results: 0 });
+  }
 
-  const cacheKey = `search:${query}:1`;
+  const cacheKey = `search:${normalizedQuery}`;
   const hit = cached(cacheKey);
   if (hit) return c.json(hit);
 
-  try {
-    const data = await scrapeTMDbSearch(query);
-    setCache(cacheKey, data);
-    return c.json(data);
-  } catch {
-    // Fallback to static
-    const all = await getStaticMovies();
-    const ql = query.toLowerCase();
-    const filtered = all.filter(m => m.title.toLowerCase().includes(ql));
-    return c.json({ results: filtered.slice(0, 20), total_pages: 1, total_results: filtered.length });
-  }
+  const all = await getStaticMovies();
+  const queryTokens = normalizedQuery.split(/\s+/).filter(Boolean);
+
+  const scored = all
+    .map((movie) => {
+      const title = (movie.title || "").toLowerCase();
+      const titleTokens = title.split(/[^a-z0-9]+/).filter(Boolean);
+      let score = 0;
+
+      if (title === normalizedQuery) score += 100;
+      if (title.includes(normalizedQuery)) score += 60;
+
+      for (const token of queryTokens) {
+        if (!token) continue;
+        if (title.includes(token)) score += 10;
+        if (titleTokens.some((t) => t.startsWith(token))) score += 14;
+      }
+
+      // small boost for close approximate title length
+      const lengthDelta = Math.abs(title.length - normalizedQuery.length);
+      score += Math.max(0, 8 - Math.min(8, Math.floor(lengthDelta / 4)));
+
+      return { movie, score };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score || (b.movie.popularity || 0) - (a.movie.popularity || 0))
+    .map((item) => item.movie);
+
+  const data = {
+    results: scored.slice(0, 20),
+    total_pages: 1,
+    total_results: scored.length,
+  };
+
+  setCache(cacheKey, data);
+  return c.json(data);
 });
 
 // Movie detail - scrapes TMDB live

@@ -23,7 +23,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
         )}
         <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md flex items-center gap-1">
           <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-          {movie.vote_average.toFixed(1)}
+          {(movie.vote_average||0).toFixed(1)}
         </div>
       </div>
       <div className="p-3">
