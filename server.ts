@@ -69,6 +69,16 @@ app.get("/api/movies/upcoming", tmdbProxy("/movie/upcoming"));
 app.get("/api/movies/search", tmdbProxy("/search/movie"));
 app.get("/api/movie/:id", tmdbProxy("/movie/:id"));
 app.get("/api/movie/:id/videos", tmdbProxy("/movie/:id/videos"));
+app.get("/api/movies/static", async (c) => {
+  try {
+    const file = Bun.file("./static-movies.json");
+    if (await file.exists()) {
+      const data = JSON.parse(await file.text());
+      return c.json(data);
+    }
+  } catch {}
+  return c.json([], 404);
+});
 // --- end TMDB proxy ---
 
 if (mode === "production") {

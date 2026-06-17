@@ -21,17 +21,18 @@ export default function HomePage() {
   useEffect(() => {
     const fetchAll = async () => {
       setLoading(true);
-      const results: Record<string, Movie[]> = {};
-      for (const cat of CATEGORIES) {
-        try {
-          const res = await fetch(cat.endpoint);
-          const data = await res.json();
-          results[cat.key] = data.results?.slice(0, 12) || [];
-        } catch {
-          results[cat.key] = [];
-        }
+      try {
+        const res = await fetch('/api/movies/static');
+        const allMovies = await res.json();
+        const results: Record<string, Movie[]> = {};
+        // Simulate categories by sorting differently
+        results['now_playing'] = allMovies.slice(0, 12);
+        results['top_rated'] = [...allMovies].sort((a: any, b: any) => b.vote_average - a.vote_average).slice(0, 12);
+        results['upcoming'] = [...allMovies].sort((a: any, b: any) => b.popularity - a.popularity).slice(0, 12);
+        setCategories(results);
+      } catch {
+        setCategories({});
       }
-      setCategories(results);
       setLoading(false);
     };
     fetchAll();
@@ -46,9 +47,11 @@ export default function HomePage() {
     }
     setSearching(true);
     try {
-      const res = await fetch(`/api/movies/search?query=${encodeURIComponent(q)}`);
-      const data = await res.json();
-      setSearchResults(data.results?.slice(0, 12) || []);
+      const res = await fetch('/api/movies/static');
+      const allMovies = await res.json();
+      const lower = q.toLowerCase();
+      const results = allMovies.filter((m: any) => m.title.toLowerCase().includes(lower));
+      setSearchResults(results.slice(0, 12));
     } catch {
       setSearchResults([]);
     }

@@ -23,16 +23,16 @@ export default function MovieDetailPage() {
   useEffect(() => {
     if (!id) return;
     setLoading(true);
-    Promise.all([
-      fetch(`/api/movie/${id}`).then(r => r.json()),
-      fetch(`/api/movie/${id}/videos`).then(r => r.json()),
-    ])
-      .then(([movieData, videoData]) => {
-        setMovie(movieData);
-        const trailers = (videoData.results || []).filter(
-          (v: VideoResult) => v.site === "YouTube" && (v.type === "Trailer" || v.type === "Teaser")
-        );
-        setTrailer(trailers[0] || null);
+    // Try static data first (no API key needed)
+    fetch('/api/movies/static')
+      .then(r => r.json())
+      .then((allMovies) => {
+        const movieId = parseInt(id);
+        const found = allMovies.find((m: any) => m.id === movieId);
+        if (found) {
+          setMovie(found);
+          setTrailer(null);
+        }
       })
       .catch(() => {})
       .finally(() => setLoading(false));
